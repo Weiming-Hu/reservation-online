@@ -1,0 +1,22 @@
+from django.conf.urls import url
+from django.contrib.auth import views as auth_views
+
+from . import views
+
+app_name = 'reservations'
+urlpatterns = [
+    url(r'^$', views.welcome, name='index'),
+    url(r'^add/$', views.add_reservation, name='add'),
+    url(r'^cancle/$', views.cancle_reservation, name='cancle'),
+    url(r'^add/submit/$', views.add_reservation_submit, name='add_submit'),
+    url(r'^add/check_exist_account/?', views.check_exist_account, name='check_exist_account'),
+    url(r'^cancle/submit/$', views.cancle_reservation_submit, name='cancle_submit'),
+    url(r'^auth/login/$', auth_views.login, name='auth_login'),
+    url(r'^auth/logout/$', views.user_logout, name='auth_logout'),
+    url(r'^auth/create_user/$', views.user_create_user, name='auth_create_user'),
+    url(r'^auth/create_user_submit/$', views.user_create_user_submit, name='auth_create_user_submit'),
+    url(r'^auth/change_password/$', views.password_change, name='auth_change_password'),
+    url(r'^auth/change_password/done/$', views.password_change_submit, name='auth_change_password_submit'),
+    url(r'^clean_old_records/$', views.clean_old_records, name='clean_old_records'),
+    url(r'^clean_old_records/submit/$', views.clean_old_records_submit, name='clean_old_records_submit'),
+]

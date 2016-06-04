@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript 日期选择器 Pikaday</title>
+<meta name="description" content="Pikaday 是一个 JavaScript 日期选择器，它不依赖于任何 Javascript 库，并且文件大小小于 5K，但是功能却一点不弱，可以进行高级定制。并且样式可以根据 CSS 进行更改选择器的设计，当然默认的样式已经非常不错了。" /> 
+<meta name="keywords" content="日历,Pikaday ,日期选择器,时间选择器，jquery,jquery插件" />
+<meta name="author" content="jQuery插件库" />
+<meta name="Copyright" content="jQuery插件库" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<link rel="Shortcut icon" href="http://www.jq22.com/favicon.ico" />
+<link href="http://www.jq22.com/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="http://www.jq22.com/wangEditor/css/wangEditor.css">
+<!--[if lt IE 9]>
+ 	<script src="http://www.jq22.com/js/respond.min.js"></script> 
+	<script src="http://www.jq22.com/js/html5shiv.min.js"></script>    
+<![endif]-->
+<link href="http://www.jq22.com/css/my.css" rel="stylesheet" media="screen">	
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://www.jq22.com/js/bootstrap.min.js"></script>
+<script>var n = 1;</script>
+<script src="http://www.jq22.com/js/m.js"></script>
+
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar-example">
+<!--nav-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-logo" href="http://www.jq22.com/"><img src="http://www.jq22.com/img/logo.png" height="100%" alt="jQuery插件,jQuery,jQuery特效.jQuery ui,jQuery 教程,css3,网页特效,JS特效"></a> </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="http://www.jq22.com/daima"><i class="fa fa-code"></i> &nbsp;在线代码</a></li>
+      	<li ><a href="http://www.jq22.com/jquery-info122"><i class="fa fa-download"></i> &nbsp;jQuery下载</a></li>
+        <li><a href="http://www.jq22.com/cdn"><i class="fa fa-rocket"></i> &nbsp;CDN加速</a></li>
+        <li><a href="http://www.jq22.com/chm/jquery1.8.3.html" target="_blank"><i class="fa fa-book"></i> &nbsp;在线手册</a></li>
+        <li class="dropdown"><a rel="nofollow" href="http://weibo.com/jq22" target="_blank"><i class="fa fa-weibo"></i> &nbsp;jQuery插件库微博</a></li>
+        <li >
+             
+       <a href="#" data-toggle="modal" data-target="#myModal" >
+            <i class="fa fa-user"></i> &nbsp;注册/登录<span class="sr-only">(current)</span></a>
+    
+        </li>
+      </ul>
+    </div>
+    <!--/.nav-collapse --> 
+  </div>
+</nav>
+<!--end nav-->
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content2 tcc">
+         <div class="modal-header2 top20">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               
+            </h4>
+         </div>
+         <div class="modal-body tcck">     
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon" id="email"><i class="fa fa-envelope-o"></i></span>
+                <script type="text/javascript">
+	            $(function(){
+	                $("#ema").changeTips({
+	                    divTip: ".on_changes2"
+		            }); 
+	            })
+	            </script> 
+              <input type="text" class="form-control" placeholder="请输入登录邮箱" aria-describedby="email" id="ema">
+              <div class="on_changes2" style="position: absolute; left:51px; top: 49px">
+			        <li email="">请选择邮箱类型</li>
+			        <li email=""></li>		        
+			        <li email="@163.com"></li>			        
+                    <li email="@126.com"></li>
+                    <li email="@qq.com"></li>
+                    <li email="@sina.com"></li>
+			        <li email="@hotmail.com"></li>			        
+			        <li email="@gmail.com"></li>
+			        <li email="@yahoo.com"></li>
+		        </div>
+            </div>
+            <div class="input-group input-group-lg top20">
+              <span class="input-group-addon" id="pwd"><i class="fa fa-unlock-alt" style="width:18px"></i></span>
+              <input type="password" class="form-control" placeholder="请输入登录密码" aria-describedby="pwd" id="pw">
+              <span class="input-group-btn tccBut">
+                <button class="btn btn-success" type="button" onclick="emdl()">登 录</button>
+              </span>
+            </div>
+            
+         </div>
+         
+         
+        <div class="modal-footer2">
+            <div class="f">
+            <a href="pwd.aspx">忘记密码?</a></div>
+            <div class="r"><a href="register.aspx">注册新用户</a></div>
+            <div class="dr"></div>
+         </div>
+         
+         <div class="d3f modal-body tcck2">          
+             <a href="#" onClick="tz()" class="qq"></a>
+             <a href="https://api.weibo.com:443/oauth2/authorize?client_id=3364913104&redirect_uri=http%3A%2F%2Fwww.jq22.com%2FWeiboReturn.aspx&response_type=code&display=default" class="sina"></a>
+             <a href="http://www.jq22.com/zfbReturn.aspx" class="zfb"></a>
+             <a href="#" onClick="gt()" class="git"></a>
+         </div>
+         <script>          
+             function tz() {
+                 var urldz = "https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101135281&redirect_uri=http://www.jq22.com/QQReturn.aspx?tjurl=" + window.location.href;
+                window.location.href = urldz;
+             }
+             function gt() {
+                 var urldz = "https://github.com/login/oauth/authorize?client_id=cf869185ea7d8fcab6df&state=jq22&redirect_uri=http://www.jq22.com/github.aspx?tjurl=" + window.location.href;
+                 window.location.href = urldz;
+             }
+         </script>
+         
+      </div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+ 	
+
+<!--nav-->
+<div class="yn jz container-fluid nav-bgn m0 visible-lg visible-md visible-sm" id="menu_wrap" >	
+	<div class="container m0" style="position:relative;"> 
+    <a class="nzz" href="http://www.jq22.com/jqueryUI-1-jq" id="z1"><span class="sort"><i class="fa fa-paint-brush"></i> &nbsp;UI <i class="fa fa-angle-down"></i></span></a>| 
+    <a class="nzz" href="http://www.jq22.com/jquery输入-1-jq" id="z2"><span class="sort"><i class="fa fa-keyboard-o"></i> &nbsp;输入 <i class="fa fa-angle-down"></i></span></a>| 
+    <a class="nzz" href="http://www.jq22.com/jquery媒体-1-jq" id="z3"><span class="sort"><i class="fa fa-film"></i> &nbsp;媒体 <i class="fa fa-angle-down"></i></span></a>| 
+    <a class="nzz" href="http://www.jq22.com/jquery导航-1-jq" id="z4"><span class="sort "><i class="fa fa-paper-plane-o"></i> &nbsp;导航 <i class="fa fa-angle-down"></i></span></a>| 
+    <a class="nzz" href="http://www.jq22.com/jquery其他-1-jq" id="z5"><span class="sort"><i class="fa fa-dropbox"></i> &nbsp;其他 <i class="fa fa-angle-down"></i></span></a>| 
+    <a   href="http://www.jq22.com/daima" target="_blank"><span class="sort"><i class="fa fa-code"></i> &nbsp;在线代码</span></a>| 
+    <a   href="http://www.bejson.com/" target="_blank"><span class="sort">JSON在线工具</span></a>
+</div>
+    
+<div class="container-fluid">
+  <div id="n1" class="nav-zi ty" style="display: none;">
+    <ul id="nz1" class="nn list-inline container m0" style="display: none;">
+      <li><a href="http://www.jq22.com/jquery-plugins背景-1-jq"><i class="fa fa-delicious ls"></i> 背景</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins对话框和灯箱-1-jq"><i class="fa fa-bell-o ls"></i> 对话框和灯箱</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins筛选及排序-1-jq"><i class="fa fa-sort-numeric-desc ls"></i> 筛选及排序</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins反馈-1-jq"><i class="fa fa-comments-o ls"></i> 反馈</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins弹出层-1-jq"><i class="fa fa-stack-overflow ls"></i> 弹出层</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins悬停-1-jq"><i class="fa fa-hand-o-up ls"></i> 悬停</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins布局-1-jq"><i class="fa fa-th-large ls"></i> 布局</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins图表-1-jq"><i class="fa fa-bar-chart ls"></i> 图表</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins加载-1-jq"><i class="fa fa-spinner ls"></i> 加载</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins圆边-1-jq"><i class="fa fa-circle-o ls"></i> 圆边</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins滚动-1-jq"><i class="fa fa-long-arrow-down ls"></i> 滚动</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins标签-1-jq"><i class="fa fa-tags ls"></i> 标签</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins文本链接-1-jq"><i class="fa fa-link ls"></i> 文本链接</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins工具提示-1-jq"><i class="fa fa-info-circle ls"></i> 工具提示</a> </li>
+      <li><a href="http://www.jq22.com/jquery-plugins网络类型-1-jq"><i class="fa fa-code-fork ls"></i> 网络类型</a> </li>
+    </ul>
+    <ul id="nz2" class="nn list-inline container m0" style="display: none;">
+          <li><a href="http://www.jq22.com/jquery-plugins拾色器-1-jq"><i class="fa fa-eyedropper ls"></i> 拾色器</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins定制和风格-1-jq"><i class="fa fa-paint-brush ls"></i> 定制和风格</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins日期和时间-1-jq"><i class="fa fa-clock-o ls"></i> 日期和时间</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins拖和放-1-jq"><i class="fa fa-arrows ls"></i> 拖和放</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins通用输入-1-jq"><i class="fa fa-keyboard-o ls"></i> 通用输入</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins自动完成-1-jq"><i class="fa fa-calculator ls"></i> 自动完成</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins密码-1-jq"><i class="fa fa-lock ls"></i> 密码</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins投票率-1-jq"><i class="fa fa-thumbs-up ls"></i> 投票率</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins搜索-1-jq"><i class="fa fa-search ls"></i> 搜索</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins选择框-1-jq"><i class="fa fa-caret-square-o-down ls"></i> 选择框</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins快捷键-1-jq"><i class="fa fa-adn ls"></i> 快捷键</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins触摸-1-jq"><i class="fa fa-hand-o-down ls"></i> 触摸</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins丰富的输入-1-jq"><i class="fa fa-h-square ls"></i> 丰富的输入</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins上传-1-jq"><i class="fa fa-upload ls"></i> 上传</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins验证-1-jq"><i class="fa fa-key ls"></i> 验证</a> </li>
+      </ul>
+      <ul id="nz3" class="nn list-inline container m0" style="display: none;">
+          <li><a href="http://www.jq22.com/jquery-plugins音频和视频-1-jq"><i class="fa fa-play-circle-o ls"></i> 音频和视频</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins幻灯片和轮播图-1-jq"><i class="fa fa-exchange ls"></i> 幻灯片和轮播图</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins图片展示-1-jq"><i class="fa fa-eye ls"></i> 图片展示</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins图像-1-jq"><i class="fa fa-picture-o ls"></i> 图像</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins地图-1-jq"><i class="fa fa-map-marker ls"></i> 地图</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins滑块和旋转-1-jq"><i class="fa fa-arrows-h ls"></i> 滑块和旋转</a> </li>
+          <li><a href="http://www.jq22.com/jquery-pluginsTabs-1-jq"><i class="fa fa-folder-o ls"></i> Tabs</a> </li>
+      </ul>
+      <ul id="nz4" class="nn list-inline container m0" style="display: none;">
+          <li><a href="http://www.jq22.com/jquery-plugins水平导航-1-jq"><i class="fa fa-long-arrow-right ls"></i> 水平导航</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins垂直导航-1-jq"><i class="fa fa-long-arrow-down ls"></i> 垂直导航</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins文件树-1-jq"><i class="fa fa-sitemap ls"></i> 文件树</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins分页-1-jq"><i class="fa fa-chevron-right ls"></i> 分页</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins手风琴菜单-1-jq"><i class="fa fa-trello ls"></i> 手风琴菜单</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins其他导航-1-jq"><i class="fa fa-location-arrow ls"></i> 其他导航</a> </li>
+      </ul>
+      <ul id="nz5" class="nn list-inline container m0" style="display: none;">
+          <li><a href="http://www.jq22.com/jquery-plugins动画效果-1-jq"><i class="fa fa-rocket ls"></i> 动画效果</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins浏览器调整-1-jq"><i class="fa fa-expand ls"></i> 浏览器调整</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins移动-1-jq"><i class="fa fa-arrows-v ls"></i> 移动</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins独立的部件-1-jq"><i class="fa fa-cogs ls"></i> 独立的部件</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins杂项-1-jq"><i class="fa fa-gift ls"></i> 杂项</a> </li>
+          <li><a href="http://www.jq22.com/jquery-plugins游戏-1-jq"><i class="fa fa-gamepad ls"></i> 游戏</a> </li>
+      </ul>  
+  </div>
+</div>
+ 	   
+</div>
+<!--end nav-->
+
+<!--主体-->
+  
+        <div class="container m0 bod top70" id="zt">
+            <!--左-->
+            <div class="col-lg-9 col-md-12 col-sm-12">
+                <div class="project">
+                    <div class="adinfo">
+                           
+                    </div>
+                	<div class="project-header">                       
+                    	<h1>JavaScript 日期选择器 Pikaday</h1>
+                        <p>所属分类：输入-日期和时间</p>
+                        <div class="row pd10">
+                            <div class="f">
+                                <span><i class="fa fa-eye"></i>  &nbsp;1016 </span>
+                                <span><i class="fa fa-heart"></i>  &nbsp;6 </span>
+                                <span style="border-right: 0;"><i class="fa fa-comment"></i>  &nbsp;0</span>
+                            </div>
+                            <div class="r">                                
+                                <div class="bdsharebuttonbox" data-tag="share_1">	                                    
+                                    <a class="bds_qzone" data-cmd="qzone"></a>
+                                    <a class="bds_bdhome" data-cmd="bdhome"></a>
+	                                <a class="bds_weixin" data-cmd="weixin" href="#"></a>
+                                    <a class="bds_tsina" data-cmd="tsina"></a>	
+	                                <a class="bds_baidu" data-cmd="baidu"></a>
+	                                <a class="bds_renren" data-cmd="renren"></a>
+	                                <a class="bds_tqq" data-cmd="tqq"></a>
+                                    <a class="bds_huaban" data-cmd="huaban"></a>                                    
+                                </div>
+                            </div>
+                            <div class="r z12" style="padding-top:5px">分享到：</div>
+                            <div class="dr"></div>
+                        </div>
+                        
+                    </div>
+                    <div class="project-content">
+                    	<img src="http://assets.jq22.com/plugin/2016-05-29-23-05-34.png" class="thumbile" alt="JavaScript 日期选择器 Pikaday">
+                        <img src="http://www.jq22.com/img/8.png" class="thumbile" alt="ie兼容8"/>
+                        <div class="thumbile">
+                            <a href="http://www.jq22.com/yanshi7564" target="_blank" class="btn btn-success"><i class="fa fa-eye"></i> &nbsp;查看演示</a>
+                            <a href="https://github.com/dbushell/Pikaday" target="_blank" class="btn btn-info" style="display:inline-block"><i class="fa fa-globe"></i> &nbsp;website</a>
+                            <a href="javascript:void(0)" onclick="mydown()" class="btn btn btn-danger" data-toggle="modal" data-target="#mydown"><i class="fa fa-cloud-download"></i> &nbsp;立即下载</a>                            
+                        </div>
+
+                       <div class="alert cjms" role="alert">插件描述：Pikaday 是一个 JavaScript 日期选择器，它不依赖于任何 Javascript 库，并且文件大小小于 5K，但是功能却一点不弱，可以进行高级定制。并且样式可以根据 CSS 进行更改选择器的设计，当然默认的样式已经非常不错了。</div>
+                        
+                        <h3>Pikaday 的简单使用</h3><p>1. 首先创建如下的输入框：<br/></p><pre class="brush:html;toolbar:false">&lt;input&nbsp;type=&quot;text&quot;&nbsp;id=&quot;datepicker&quot;&gt;</pre><p>2. 在页脚加载 Pikaday 的 Javascript 库和 CSS 文件，并调用 Pikaday：</p><pre class="brush:html;toolbar:false">&lt;link&nbsp;rel=&quot;stylesheet&quot;&nbsp;href=&quot;http://dbushell.github.com/Pikaday/css/pikaday.css&quot;&gt;
+&lt;script&nbsp;src=&quot;http://dbushell.github.com/Pikaday/pikaday.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;picker&nbsp;=&nbsp;new&nbsp;Pikaday({&nbsp;field:&nbsp;document.getElementById(&#39;datepicker&#39;)&nbsp;});
+&lt;/script&gt;</pre><p>如果网页已经加载了 jQuery 库，其中调用代码可以改成下面更简洁的方式：</p><pre class="brush:html;toolbar:false">var&nbsp;picker&nbsp;=&nbsp;new&nbsp;Pikaday({&nbsp;field:&nbsp;$(&#39;#datepicker&#39;)[0]&nbsp;});</pre><p>以上2步就完成了简单的 Pikaday 的使用。</p><p><br/></p>
+                     
+                        <div class="row text-center">
+                           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- mxk -->
+                            <ins class="adsbygoogle"
+                                 style="display:inline-block;width:728px;height:90px"
+                                 data-ad-client="ca-pub-2935286260943234"
+                                 data-ad-slot="1196706306"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+
+                        <ul class="x-top" style="padding-left:0px">
+                            <div class="fy f zhs"><span class="jg35">PREVIOUS:</span></div>
+                            <div class="fy f txtRight zhs"><span class="jg352">NEXT:</span></div>
+                            <div class="fy f"><a class='PREVIOUS' href='http://www.jq22.com/jquery-info7578'> 支持移动触摸设备的jquery幻灯片插件lory </a> </div>
+                            <div class="fy f txtRight"><a class='NEXT' href='http://www.jq22.com/jquery-info7562'> 商品飞入购物车动画效果 </a> </div>
+                            <div class="dr"></div>
+                            <div class="df"></div>
+                        </ul>
+
+
+                    </div>
+                   
+                   		<div class="in100">
+                        <h4 style="padding-left:10px">相关插件-日期和时间</h4>
+                            
+                   			<div class="col-lg-4 col-md-3 col-sm-4">
+                                <a href="http://www.jq22.com/jquery-info6487"><img src="http://assets.jq22.com/plugin/2016-03-27-22-03-00.png"></a>
+                                <div class="cover-info">
+                                    <a href="http://www.jq22.com/jquery-info6487"><h4>js制作日历</h4></a>
+                                    <small>这是一款提供所有节假日已经农历气候的完整日历</small>                       
+                                </div>  
+                                <div class="cover-fields">
+                                    <i class="fa fa-list-ul"></i> &nbsp;
+                                    日期和时间
+                                </div>
+                                <div class="cover-stat">
+                                    <i class="fa fa-eye"></i><span class="f10"> &nbsp;3070</span>
+                                    <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;16</span>
+                                    <div class="cover-yh">
+                                        <a href="http://www.jq22.com/mem211886" data-container="body" data-toggle="popover" data-placement="top" data-content="hello_1s ">
+                                            <i class="fa fa-user-secret"></i>
+                                        </a>
+                                    </div>
+                                </div>        
+                            </div>                    
+                            
+                   			<div class="col-lg-4 col-md-3 col-sm-4">
+                                <a href="http://www.jq22.com/jquery-info4611"><img src="http://assets.jq22.com/plugin/2015-11-04-13-11-52.png"></a>
+                                <div class="cover-info">
+                                    <a href="http://www.jq22.com/jquery-info4611"><h4>jQuery日期时间选择器</h4></a>
+                                    <small>基于Bootstrup 3的jQuery日期时间选择器</small>                       
+                                </div>  
+                                <div class="cover-fields">
+                                    <i class="fa fa-list-ul"></i> &nbsp;
+                                    日期和时间
+                                </div>
+                                <div class="cover-stat">
+                                    <i class="fa fa-eye"></i><span class="f10"> &nbsp;9255</span>
+                                    <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;49</span>
+                                    <div class="cover-yh">
+                                        <a href="http://www.jq22.com/mem141997" data-container="body" data-toggle="popover" data-placement="top" data-content="??砧名字樘了比较拉锾 ">
+                                            <i class="fa fa-user-secret"></i>
+                                        </a>
+                                    </div>
+                                </div>        
+                            </div>                    
+                            
+                   			<div class="col-lg-4 col-md-3 col-sm-4">
+                                <a href="http://www.jq22.com/jquery-info4421"><img src="http://assets.jq22.com/plugin/2015-10-20-15-10-11.jpg"></a>
+                                <div class="cover-info">
+                                    <a href="http://www.jq22.com/jquery-info4421"><h4>CSS3实现钟表UI</h4></a>
+                                    <small>这是一款使用CSS3+JS 实现钟表的例子，UI是自己设计的</small>                       
+                                </div>  
+                                <div class="cover-fields">
+                                    <i class="fa fa-list-ul"></i> &nbsp;
+                                    日期和时间
+                                </div>
+                                <div class="cover-stat">
+                                    <i class="fa fa-eye"></i><span class="f10"> &nbsp;2884</span>
+                                    <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;13</span>
+                                    <div class="cover-yh">
+                                        <a href="http://www.jq22.com/mem27191" data-container="body" data-toggle="popover" data-placement="top" data-content="worldart ">
+                                            <i class="fa fa-user-secret"></i>
+                                        </a>
+                                    </div>
+                                </div>        
+                            </div>                    
+                            
+                   			<div class="col-lg-4 col-md-3 col-sm-4">
+                                <a href="http://www.jq22.com/jquery-info3714"><img src="http://assets.jq22.com/plugin/2015-07-27-17-07-22.png"></a>
+                                <div class="cover-info">
+                                    <a href="http://www.jq22.com/jquery-info3714"><h4>Jquery滑动日期输入控件</h4></a>
+                                    <small>Jquery滑动日期输入控件，手机使用效果最佳</small>                       
+                                </div>  
+                                <div class="cover-fields">
+                                    <i class="fa fa-list-ul"></i> &nbsp;
+                                    日期和时间
+                                </div>
+                                <div class="cover-stat">
+                                    <i class="fa fa-eye"></i><span class="f10"> &nbsp;6897</span>
+                                    <i class="fa fa-heart"></i></i><span class="f10"> &nbsp;47</span>
+                                    <div class="cover-yh">
+                                        <a href="http://www.jq22.com/mem110442" data-container="body" data-toggle="popover" data-placement="top" data-content="wangbing10gm ">
+                                            <i class="fa fa-user-secret"></i>
+                                        </a>
+                                    </div>
+                                </div>        
+                            </div>                    
+                            
+                            
+                            <div class="df"></div>  
+                   		</div>
+                  
+                    	<div class="in2">
+                            	<h4>讨论这个项目（0）<span class="z14">回答他人问题或分享插件使用方法奖励jQ币</span></h4>
+                                
+                                 
+                                 <a name="anchor"></a>
+                                <div class="df dr"></div> 
+                        </div>
+
+                        <div class="in2">
+                            <div id="err" class="alert alert-danger" role="alert" style="display:none"><i class="fa fa-smile-o"></i> 登录后才可以评论</div>
+                            <div id="err2" class="alert alert-warning" role="alert" style="display:none"><i class="fa fa-smile-o"></i> 30秒后在评论吧!</div>
+                            <textarea id='textarea1' style='height:200px; width:100%;'></textarea>
+                            
+                            <div class="r top10">
+                            <button onclick="getPlainTxt()" type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+                              发表评论
+                            </button>
+                            
+                            </div>
+                            <div class="dr"></div>
+                        </div>
+
+                        <div class="huif">
+                             <a class="qxhf" onclick="qx()">取消回复</a>
+                             <textarea id='textarea2' style='height:150px; width:100%;'></textarea>
+                             <button onclick="hftj()" type="button"  class="btn btn-primary top10">回复</button>
+                        </div>
+                </div>
+  
+           </div>
+      
+            <!--end左-->
+            
+            <!--右-->
+            <div class="col-lg-2 visible-lg" style="width:200px">
+                <ul class="zuo f list-group">
+                    <h6>PROMULGATOR</h6>
+                    <a href="../mem257406"><img src="../tx/8.png"></a>
+                    <div class="zuox f">
+                    	<h4>大树</h4>
+                        <i class="fa fa-map-marker"></i> 
+                    </div>
+                    <button type="button" class="btn btn-z top20" onclick="zuozhe()"><i class='fa fa-plus-circle'></i> 关注作者 <span>(0)</span></button>
+                    <button type="button" class="btn btn-z top10" onclick="sc()"><i class='fa fa-heart-o'></i> 收藏此插件 <span>(6)</span></button>
+                    <div class="df"></div>
+                </ul>
+                <div class="df"></div>
+
+            	<ul class="list-group" style="margin-bottom:10px">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="搜索插件.." style="height: 34px; margin-top: 8px;" id="searchtxt">
+    <span class="input-group-btn">
+    <button class="btn btn-default" type="button" id="seobut" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-left-width: 0px;"><i class="fa fa-search"></i></button>
+    </span> 
+    <script type="text/javascript">
+		$("#seobut").click(function() {
+			var seo = $("#searchtxt").val();
+			if (seo.length > 1) {
+				window.location.href = "search?seo=" + seo;
+			}
+		});
+		$('#searchtxt').bind('keypress',
+		function(event) {
+		
+			if (event.keyCode == "13") {
+				var seo = $("#searchtxt").val();
+				if (seo.length > 1) {
+					window.location.href = "search?seo=" + seo;
+				}
+			}
+		});									
+	</script> 
+  </div>
+</ul>
+ 
+                <ul class="list-group">
+                  <a class="list-group-item on" href="http://www.jq22.com/jq1-jq1" data-para="time"><i class="fa fa-flag"></i> &nbsp;最新发布</a>
+                  <a class="list-group-item" href="http://www.jq22.com/jq1-jq4" data-para="comments"><i class="fa fa-heart"></i> &nbsp;最多收藏</a>
+                  <a class="list-group-item" href="http://www.jq22.com/jq1-jq2" data-para="comments"><i class="fa fa-comments-o"></i> &nbsp;最多评论</a>
+                  <a class="list-group-item" href="http://www.jq22.com/jq1-jq3" data-para="downloads"><i class="fa fa-arrow-circle-o-down"></i> &nbsp;最多下载</a>
+                  <a class="list-group-item" href="http://www.jq22.com/jq1-jq8" data-para="ie8"><i class="fa fa-bus"></i> &nbsp;兼容IE8</a>
+                  <a class="list-group-item" href="http://www.jq22.com/jq1-jq6" data-para="ie6"><i class="fa fa-motorcycle"></i> &nbsp;兼容IE6</a> 
+                </ul>
+                <ul class="list-group" >
+                     <a class="list-group-item on" href="http://www.jq22.com/cssgsh" data-para="time"><i class="fa fa-css3"></i> &nbsp;css 格式化工具</a>
+                     <a class="list-group-item on" href="http://www.jq22.com/jsgsh" data-para="time"><i class="fa fa-code"></i> &nbsp;js 格式化工具</a>
+                </ul>
+                <ul class="list-group" style="margin-top:0px">
+                    <button type="button" class="btn btn-info" style="width:100%" onclick="fbcj()">发布资源获得jQ币</button> 
+                    <a class="btn btn-success top10" style="width:100%" href="http://www.jq22.com/zxzf.aspx">直接获得jQ币</a> 
+                </ul>
+                
+            </div>
+            <!--end右-->
+            
+            
+            
+    </div>  
+
+
+<!--end主体-->
+
+<!--底部-->
+<nav class="foot navbar-inverse navbar-fixed-bottom">
+	<ul class="list-inline">
+      <li class="footer-ss">
+      	<a href="javascript:void(0)" data-container="body" data-toggle="popover" data-placement="top" data-html="true" data-content=" ">更多 &nbsp;<i class="fa fa-angle-down"></i></a></li>
+      <li class="footer-ss">在线反馈</li>
+      <li class="footer-ss">帮助中心</li>
+      <li>Copyright © 2012-2015 jQuery插件库Version 3.0.0. 备案号:沪ICP备13043785号-1.</li>
+    </ul>
+    <ul class="list-inline text-right">
+   	 	<li >
+     
+    	</li>
+    </ul>
+</nav>
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?b3a3fc356d0af38b811a0ef8d50716b8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+ 	
+<!--end底部-->
+
+   
+<!-- Modal -->
+<div class="modal fade" id="mydown" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content dwontop">
+      <div class="modal-header dwonbtbg dwonx">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title " id="myModalLabel">JavaScript 日期选择器 Pikaday</h4>
+      </div>
+      <div class="modal-body ">
+         <div class="yuei">
+         	<i class="fa fa-btc"></i> 我当前jQ币余额：<span class="z30 f20 og" id="jf">正在获取..</span> <i class="fa fa-download"></i> 已下载次数：<span class="z30">57</span>   
+         </div>
+         <div class="yuei">
+         	<span class="xzsm">所需jQ币：<span class="en">0</span></span><a href="javascript:void(0)" onclick="xz()" class="xzsm xza"><i class="fa fa-download"></i> 开始下载</a>  
+         </div>
+         <div id="err3" class="alert alert-danger top20" role="alert" style="display:none;background-color: #FFF6F6;"><i class="fa fa-frown-o"></i> <span id="xzts"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+   
+<form id="openWin" action="#" target="_blank" method="get"></form>
+
+<script type="text/javascript" src='http://www.jq22.com/wangEditor/js/wangEditor.js'></script>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        var editor = $('#textarea1').wangEditor({
+            'menuConfig': [
+				['insertCode', 'bold'],
+				['list', 'justify'],
+				['insertHr', 'undo']
+            ]
+        });
+        var editor2 = $('#textarea2').wangEditor({
+            'menuConfig': [
+				['insertCode', 'bold'],
+				['list', 'justify'],
+				['insertHr', 'undo']
+            ]
+        });
+    });
+    var a = "7564";
+    var dzurl = window.location.href.substr(0, 26);
+    var dzurl2 = window.location.href.substr(0, 22);
+    var dzurl3 = window.location.href.substr(0, 27);
+    if (dzurl == "http://www.jq22.com/plugin" || dzurl2 == "http://jq22.com/plugin" || dzurl3 == "http://jq22.com/jquery-info") {
+        window.location.href = "http://www.jq22.com/jquery-info" + a;
+    }
+    var errstr = window.location.href;
+    sperrstr = errstr.split("");
+    errul = sperrstr[sperrstr.length - 1];
+    if (errul == "/") {
+        errstr = errstr.substring(0, errstr.length - 1);
+        window.location.href = errstr;
+    }
+    var b = "257406";
+    var lytjbut = document.getElementById('myButton');
+    function getPlainTxt() {
+        if ($('#textarea1').val().length > 5) {
+            lytjbut.disabled = true;
+        }
+        setTimeout(function () {        
+            var k="o";
+            if(k=="0"){
+                myLogin($('#textarea1').val());
+            }
+            else
+            {
+                $("#err").css("display", "block");
+            }
+            
+        }, 1000);        
+    }
+    var pid;
+    $(".hf").click(function () {
+        pid=$(this).attr("name");
+        $(".hf").css("padding-bottom", "10px");
+        $(".huif").css({ "top": $(this).offset().top - 30, "display": "block" });
+        $(this).css("padding-bottom", "300px");
+    });
+    function qx() {
+        $(".hf").css("padding-bottom", "10px");
+        $(".huif").css("display", "none");
+    }
+    function hftj() {
+        var jhf = document.getElementById("textarea2").value;
+        jhf = jhf.replace(/<[\S\s]*?\1>|<\/?(a|img)[^>]*>/gi, "");
+        var hfHTML = encodeURIComponent(jhf);
+        if (hfHTML.length > 5) {
+            var h = $.ajax({
+                type: 'post',
+                url: 'fyadd.aspx',
+                data: { yy: pid, nr:hfHTML, ww:a},
+                cache: false,
+                dataType: 'text',
+                success: function (data){
+                    if (data == "y") {
+                        window.location.reload();
+                    } else {
+                        $("#err2").css("display", "block");
+                        $("#err2").addClass("dou2");
+                    }
+                },
+                error: function () { }
+            });
+        }
+    }
+    function myLogin(aa) {
+        var jhf = aa;
+        jhf = jhf.replace(/<[\S\s]*?\1>|<\/?(a|img)[^>]*>/gi, "");
+        var encodeHTML = encodeURIComponent(jhf);
+        if (aa.length > 3) {
+            var yz = $.ajax({
+                type: 'post',
+                url: 'lyadd.aspx',
+                data: { wz: a, nr: encodeHTML, zz: b },
+                cache: false,
+                dataType: 'text',
+                success: function (data) {
+                    if (data == "y") {                        
+                        window.location.reload();
+                    } else {
+                        $("#err2").css("display", "block");
+                        $("#err2").addClass("dou2");
+                    }
+                },
+                error: function () { }
+            });
+        }
+    }
+
+    function mydown() {
+        var yz = $.ajax({
+            type: 'post',
+            url: 'down.aspx',
+            data: {},
+            cache: false,
+            dataType: 'text',
+            success: function (data) {
+                $("#jf").html(data);
+            },
+            error: function () { }
+        });
+    }
+    function xz() {
+        var yz = $.ajax({
+            type: 'post',
+            url: 'xz.aspx',
+            data: { wz: a },
+            cache: false,
+            dataType: 'text',
+            success: function (data) {
+                if (data == '3') {
+                    $("#xzts").html("登录后才可以下载！");
+                    $("#err3").css("display", "block");
+                    $("#err3").addClass("dou2");
+                }
+                else if (data == '0') {
+                    $("#err3").css("display", "block");
+                    $("#err3").addClass("dou2");
+                     $("#xzts").html("余额不足,发布资源、回答他人提问、分享插件使用方法奖励jQ币，或者直接 <b><a href='http://www.jq22.com/zxzf.aspx' target='_blank' style='color: #24B900; font-size:17px'>充值!</a></b>");
+                }
+                else
+                {
+                    $("#xzts").html(data);
+                    window.location.href = "../"+data;
+                }
+
+            },
+            error: function () { }
+        });
+    }
+
+    function sc() {     
+        var yz = $.ajax({
+            type: 'post',
+            url: 'http://www.jq22.com/shou.aspx',
+            data: { wz:a},
+            cache: false,
+            dataType: 'text',
+            success: function (data) {
+                if (data == "m") {                  
+                    $("#myModal").modal();
+                } else {                  
+                    window.location.href = window.location;
+                    lytjbut.disabled = false;
+                }
+            },
+            error: function () { }
+        });     
+    }
+
+    function zuozhe() {
+        var yz = $.ajax({
+            type: 'post',
+            url: 'http://www.jq22.com/zuozhe.aspx',
+            data: {z:b },
+            cache: false,
+            dataType: 'text',
+            success: function (data) {
+                if (data == "m") {
+                    $("#myModal").modal();
+                } else {
+                    window.location.href = window.location;
+                }
+            },
+            error: function () { }
+        });
+    }
+    function fbcj() {
+        yh = "";
+        if (yh != "") {
+            window.location.href = "jquerySubmit.aspx";
+        } else {
+            $("#myModal").modal();
+        }
+
+    }
+
+    $(".jl").each(function () {
+        if ($(this).text() > 0) {
+            $(this).css('display', 'inline-block');
+            $(this).html("评论奖励 " + $(this).text() + " jQ币");
+        }
+    });
+</script>
+
+<script>
+	window._bd_share_config = {
+		common : {
+			bdText : 'JavaScript 日期选择器 Pikaday',	
+			bdDesc : 'Pikaday 是一个 JavaScript 日期选择器，它不依赖于任何 Javascript 库，并且文件大小小于 5K，但是功能却一点不弱，可以进行高级定制。并且样式可以根据 CSS 进行更改选择器的设计，当然默认的样式已经非常不错了。',	
+		    bdUrl: 'http://www.jq22.com/jquery-info7564',
+		    bdPic: 'http://assets.jq22.com/plugin/2016-05-29-23-05-34.png'
+		},
+		share : [{
+			"bdSize" : 16
+		}],		
+			
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<script>
+var baiduImagePlus = {
+noLogo:true,
+unionId:'u2478612',
+maxMiniAdCount:0,
+formList:[{formId:3},{formId:8}]
+};
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/i.js"></script>
+
+
+
+</body>
+</html>
+

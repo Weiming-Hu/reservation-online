@@ -1,0 +1,1267 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>39个让你受益的HTML5教程 - 求索
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="前一段时间一直用ramdisk格式做的initrd.img.后来借用主机的initrd.img直接挂在已经分区的文件系统。鉴于要修改它所以用网上的cpio制作方法，结果一直是KERNEL PANIC。后来看到网上说这是不对的。那些家伙一直在误导我啊。幸亏今天看到一些资料，参照着做了一个，非常成功，高兴啊，呵呵！其实知道方法后很简单，不过在我的内核源码中没有gen_initramfs_list." />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/skin-yellow/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/HorkyChen/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/nobg_code.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/horkychen">求索</a></h2>
+            <h3>Make Something Different</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/horkychen?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/horkychen?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/horkychen/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "HorkyChen";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/horkychen";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+<a href="http://edu.csdn.net/huiyiCourse/detail/130
+">
+<font color=red>【免费公开课】Gulp前端自动化教程
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://ask.csdn.net/subjects/7">
+<font color=blue>【专家问答】陈绍英：大型IT系统性能测试实战</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://blog.csdn.net/yanzi1225627/article/details/51438262">
+<font color=red>团队自研应用-本地商 开源公告
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+
+</font></a>
+</div>                        </div>
+                        
+
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Translated"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/horkychen/article/details/7831206">
+        39个让你受益的HTML5教程            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/html5' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">html5</a><a href='http://www.csdn.net/tag/javascript' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">javascript</a><a href='http://www.csdn.net/tag/html' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">html</a><a href='http://www.csdn.net/tag/%e6%b5%8f%e8%a7%88%e5%99%a8' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">浏览器</a><a href='http://www.csdn.net/tag/css' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">css</a><a href='http://www.csdn.net/tag/forms' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">forms</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2012-08-04 23:51</span>
+            <span class="link_view" title="阅读次数">60298人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(11)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('39个让你受益的HTML5教程','7831206');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(7831206,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            var lib = eval("("+$("#lib").attr("value")+")");
+            var html = "";
+            if (lib.err == 0) {
+                $.each(lib.data, function (i) {
+                    var obj = lib.data[i];
+                    //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                    html += ' <a href="' + obj.url + '" target="_blank">';
+                    html += ' <img src="' + obj.logo + '">';
+                    html += ' <em><b>' + obj.name + '</b></em>';
+                    html += ' </a>';
+                });
+                if (html != "") {
+                    setTimeout(function () {
+                        $("#lib").html(html);
+                        /*
+                        var testhtml = "";
+                        testhtml += '<a href="#">';
+                        testhtml += '<img src="http://img.knowledge.csdn.net/upload/base/1455589744328_328.jpg">';
+                        testhtml += '<em>Android知识库</em>';
+                        testhtml += '</a>';
+                        $(".embody_c").html(testhtml);
+                        */
+                        $("#embody").show();
+                    }, 100);
+                }
+            }          
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('1199550','HorkyChen','top','7831206');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">HTML5<em>（12）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/HorkyChen/article/category/1199550"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1199550">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p><span style="font-family:NSimSum; font-size:14px">闲话少说，本文作者为大家收集了网上学习HTML5的资源，期望它们可以帮助大家更好地学习HTML5. 好人啊! 不过,作者原来说的40个只有39个，因为第5个和第8个是重复的。</span></p>
+<p><span style="font-family:NSimSum"><a href="http://www.freshdesignweb.com/useful-html5-lessons-tutorial-for-learning-html5.html"><span style="font-size:12px">原文在此</span></a><span style="font-size:12px">!</span></span></p>
+<p><span style="font-family:NSimSum; font-size:14px"><strong>1. 五分钟入门HTML5 (</strong><a href="http://twimgs.com/custom/web-development/assets/Learn_HTML_in_5_Minutes_Jennifer_Marsman.pdf" target="_blank"><strong>Learn HTML5 in 5 Minutes!</strong></a><strong>)
+ &nbsp;</strong></span><span style="font-family:NSimSum; font-size:14px"><strong>By Jennifer Marsman</strong></span></p>
+<p><span style="font-family:NSimSum; font-size:14px">毫无疑问,HTML5是一个热门话题。如果你需要一个迅速了解HTML基础的速成课程,那这就是你需要的。我将介绍新的语义标签(markups)、 使用canvas进行绘制和动画、视频(&lt;video&gt;)和音频(&lt;audio&gt;)的支持, 以及如何在旧浏览器中</span><span style="font-family:NSimSum; font-size:14px">使用HTML5</span><span style="font-family:NSimSum; font-size:14px">。可能有点超过5分钟,但我保证我会言简意赅。来吧，这是绝对&#20540;得一读!</span></p>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">2. HTML5 Canvas开发者指南 (<a href="http://twimgs.com/custom/web-development/assets/Developers-Guide-to-HTML5-Canvas_SP_Malcom-Sheridan.pdf" target="_blank">The Developers Guide to HTML5 Canvas</a>)&nbsp;&nbsp;</span><span style="font-family:NSimSum; font-size:12px">By
+ Malcolm Sheridan</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">毋庸置疑, canvas元素是HTML5中最神的功能. 开发人员可以使用它开发真正的富网页应用程序(rich web application)而不需要安装浏览器安装像Adobe Flash播放器那样的插件(plugins)。现代的浏览器,比如Chrome,Firefox和Internet Explorer 9和10都支持它。 但什么是HTML5 canvas? 你如何使用它来创建富网页应用程序呢?</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">3.如何使用HTML5 canvas创建一个可视化的图像库(<a href="http://twimgs.com/custom/web-development/assets/How_to_Create_a_Visual_Library_of_Images_in_HTML5_Canvas_David_Cathue.pdf" target="_blank">How to Create a Visual Library
+ of Images in HTML5 Canvas</a>) </span><span style="font-family:NSimSum; font-size:12px">by David Catuhe</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">作为对UI很挑剔的我, 无法拒绝使用HTML5 Canvas开发。它采用了整</span><span style="font-family:NSimSum; font-size:14px">套全新的方法来实现网页图像和数据的</span><span style="font-family:NSimSum; font-size:14px">可视化</span><span style="font-family:NSimSum; font-size:14px">。在本教程中,我将带您把它应用你的网页上</span><span style="font-family:NSimSum; font-size:14px">。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">4.创建HTML5应用:你应当了解的那些事<span>&nbsp;</span>(<a href="http://msdn.microsoft.com/en-us/magazine/hh335062.aspx" target="_blank">Building Apps with HTML5: What You Need to Know</a>)&nbsp;</span><span style="font-family:NSimSum; font-size:12px">by
+ Brandon Satrom</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML5出马,网页将与众不同。</span></span><span style="font-family:NSimSum; font-size:14px">毫无疑问你已经听说过这类说辞。为什么? &nbsp;</span><span style="font-family:NSimSum; font-size:14px">HTML5有可能改变我们的互联网,但它也被吹上天了。更重要的是,它的真正含义仍然难以捉摸的。这是一个广泛的话题,
+ 因此不要让自己束缚于HTML5, 而不知道从哪里开始。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">5. 让你的HTML5视频可以在移动设备上播放&nbsp;(<a href="http://twimgs.com/ddj/v2/images/channel-sponsor/Make_Your_HTML5_Video_Play_on_Mobile_Devices_Nigel_Parker.pdf" target="_blank">Make your HTML5 video play on mobile devices</a>)&nbsp;</span><span style="font-family:NSimSum; font-size:12px">by
+ Nigel Parker</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">当被问及如何通过开始使用HTML5视频时,我会反问&quot;你想解决什么问题?&quot; 几乎每次我都听到,&quot;我只想要我的视频可以在移动设备上播放。 &quot; 很容易! 我将向您展示如何开始。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">6. 6堂完备的HTML5和CSS课程<span>&nbsp;</span>(<a href="http://blogs.msdn.com/b/mis_laboratory/archive/2011/10/18/new-html-5-and-css-six-complete-lessons.aspx" target="_blank">HTML 5 and CSS: Six Complete Lessons</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML 5与CSS的强强联合正在成为新的热门语言。我也很高兴的宣布我们已经创建了六个完整的课程,涵盖最有趣的和动态HTML 5的新特性,是专为准备进入到Web开发的你准备的。每堂课都有PPT, 完整的带有实作的阅读任务。一个单一的教程约75 - 100分钟的时间。说是完整，那完全不是盖的！</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">7.HTML5和CSS3，你将要使用的技术!<span>&nbsp;</span>(<a href="http://net.tutsplus.com/tutorials/html-css-techniques/html-5-and-css-3-the-techniques-youll-soon-be-using/" target="_blank">HTML 5 and CSS 3: The Techniques
+ You’ll Soon Be Using</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">在本教程中,我们将</span></span><span style="font-family:NSimSum; font-size:14px">使用HTML 5和CSS 3</span><span style="font-family:NSimSum; font-size:14px">建立一个博客页面。如果你已经了解HTML和CSS,应该很容易学完。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">8. 让HTML5音乐响起来<span>&nbsp;</span>(<a href="http://twimgs.com/custom/web-development/assets/Crank-Up-the-Volume-with-HTML5-Music_Ed-Tittle.pdf" target="_blank">Crank Up the Volume with HTML5 Music</a>)&nbsp;</span><span style="font-family:NSimSum; font-size:12px">By
+ Ed Tittel</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">HTML5让网络音乐卷土重来。使用&lt;audio&gt;标记将不需要外部的音乐播放器, 而允许由你的网页自己播放你的音乐。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">9.释放HTML5 &lt;audio&gt;的能量<span>&nbsp;</span>(&nbsp;<a href="http://twimgs.com/custom/web-development/assets/Unlocking-the-power-of-HTML5-audio.pdf" target="_blank">Unlocking the power of HTML5 &lt;audio&gt;</a>)&nbsp;</span><span style="font-family:NSimSum; font-size:12px">By
+ Giorgio Sardo</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">音乐是咱们生活的旋律! 现在,HTML5 &lt;audio&gt;元素允许Web开发人员</span></span><span style="font-family:NSimSum; font-size:14px">在应用中嵌入声音。灵活的控制加上平台整合,</span><span style="font-family:NSimSum; font-size:14px">允许多个场景效果,
+ 从简单的</span><span style="font-family:NSimSum; font-size:14px">背景音效到</span><span style="font-family:NSimSum; font-size:14px">到游戏中</span><span style="font-family:NSimSum; font-size:14px">更复杂的音频引擎。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">10.HTML5应用:定位<span>&nbsp;</span>(<a href="http://mobile.tutsplus.com/tutorials/mobile-web-apps/html5-geolocation/" target="_blank">HTML5 Apps: Positioning with Geolocation</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">定位(</span></span><span style="font-family:NSimSum; font-size:14px">positioning and geolocation</span><span style="font-family:NSimSum; font-size:14px">)是每个基于地理位置应用的核心。在本教程中,您将学习地理定位(geolocation)功能和基本原理,
+ 并把它应用在你的下一个HTML5应用程序中!</span></p>
+<p><span style="font-family:NSimSum; font-size:14px"><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095480_6428.jpg"></span></p>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">11.测验:看看你了解HTML5多少? (<a href="http://net.tutsplus.com/articles/quizzes/nettuts-quiz-6-how-well-do-you-know-html5/" target="_blank">Quiz : How Well do you Know HTML5?</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">这是一个很棒的地方, 来测测试你的HTML5基础知识。不要太骄傲! 它们会让你求饶的！祝你好运！</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">12.如何让所有浏览器都正确解析HTML5<span>&nbsp;</span>(<a href="http://net.tutsplus.com/tutorials/html-css-techniques/how-to-make-all-browsers-render-html5-mark-up-correctly-even-ie6/" target="_blank">How to Make All Browsers
+ Render HTML5 Mark-up Correctly – Even IE6</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML 5提供了一些很棒的新特性, 代码可读性, 语义化的布局。然而,HTML 5的支持仍在不断完善中,Internet Explorer是最迟一个添加支持的。在本教程中,我们将使用HTML5创建一个常见的布局, 然后使用JavaScript和CSS使我们的设计向后兼容IE。是的,包括IE 6!</span></span></p>
+<p><span style="font-family:NSimSum; font-size:14px"><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095505_5650.jpg"></span></p>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">13.如何创建一个跨浏览器的表单(<a href="http://net.tutsplus.com/tutorials/html-css-techniques/how-to-build-cross-browser-html5-forms/" target="_blank">How to Build Cross-Browser HTML5 Forms</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">第一个</span></span><span style="font-family:NSimSum; font-size:14px">HTML5</span><span style="font-family:NSimSum; font-size:14px">所见即所得的努力是Web Forms 2.0, 最初叫做XForms Basic。 后来,它被纳入HTML5, 随后被剥夺了重复模式,
+ 最终演化为我们今天所熟知的HTML5表单(Forms)。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095676_7110.jpg"></p>
+<h2><span style="font-family:NSimSum; font-size:14px">14. HTML5速查表<span>&nbsp;</span>(<a href="http://media.smashingmagazine.com/wp-content/uploads/images/html5-cheat-sheet/html5-cheat-sheet.pdf" target="_blank">HTML 5 Cheat Sheet (PDF)</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span><span style="font-family:NSimSum"><span style="font-size:14px">XHTML 2工作小组预计2009年底停止工作, 相反地，W3C正计划增加在HTML5上的投入。甚至尽管HTML 5到2022年也</span></span><span style="font-family:NSimSum; font-size:14px">不会被完全支持</span><span style="font-family:NSimSum; font-size:14px">,但并不影响它正被广泛的采用！</span><span style="font-family:NSimSum; font-size:14px">我们决定完成一个方便的可打印HTML
+ 5小抄,列出了目前支持的所有标记,它们的描述,它们的属性, 以及他们是否在HTML 4中。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">15. 使用HTML5设计博客的基础知识&nbsp;(<a href="http://html5doctor.com/designing-a-blog-with-html5/" target="_blank">Basic Knowledge Designing a blog with html5</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">大部分的HTML 5的特性集包含了JavaScript API,使它更容易开发交互式页面, 但是有大量的新元素,为常规的Web 1.0页面提供了</span></span><span style="font-family:NSimSum; font-size:14px">额外的语义</span><span style="font-family:NSimSum; font-size:14px">。为了研究这些,让我们看看如何在博客中应用它们。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<p><span style="font-family:NSimSum"><span style="font-size:14px"><br>
+</span></span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">16. HTML5中的结构化标签<span>&nbsp;</span>(<a href="http://orderedlist.com/resources/html-css/structural-tags-in-html5/" target="_blank">Structural Tags in&nbsp;HTML5</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML5规范已经增加了一些有趣和有用的标记用于结构化。对于多数应用,这些标签将会取代典型的div条目。所以让我们深入挖掘一下。</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<p><span style="font-family:NSimSum"><span style="font-size:14px"><br>
+</span></span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">17.编写一个CSS3&amp;HTML5的单网页模板(<a href="http://tutorialzine.com/2010/02/html5-css3-website-template/" target="_blank">Coding a CSS3 &amp; HTML5 One-Page Website Template)<br>
+</a></span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">搞Web开发, 你必须要跟上最新的技术, 这样才能使你站在最前面。这也是一个以惊人的速度变化的领域。现在的标准很快将在几年内被淘汰。所以你要跟上脚步，来学习一下CSS3与HTML5搭档的应用。(后面一句是我加的! ^_^)</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095775_7772.jpg"></p>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">18. HTML5可视化的速查表(<a href="http://woorkup.com/2009/12/16/html5-visual-cheat-sheet-reloaded/" target="_blank">HTML5 Visual Cheat Sheet</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">这个速查表本质上是一个简单的视觉表&#26684;,包含所有的HTML标签和相关HTML5属性的列表。简单的视觉风&#26684;让你一&#30524;就能发现你正在寻找的东东。请留下你的评论! 感谢每一个建议!</span></p>
+<p align="center"><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095822_3395.jpg"></p>
+<h3><a href="http://woorkup.com/wp-content/uploads/2009/12/HTML5-Visual-Cheat-Sheet1.pdf" target="_blank"><span style="font-family:NSimSum; font-size:14px">Download</span></a></h3>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">19. HTML5 Canvas速查表<span>&nbsp;</span>(<a href="http://blog.nihilogic.dk/2009/02/html5-canvas-cheat-sheet.html" target="_blank">HTML5 Canvas Cheat Sheet</a>)</span></h2>
+<h3><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095849_9095.jpg"></h3>
+<h3><a href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.pdf" target="_blank"><span style="font-family:NSimSum; font-size:14px">Download</span></a></h3>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">20.用HTML5设计并编写一个很酷的iPhone应用&nbsp;(<a href="http://line25.com/tutorials/design-and-code-a-cool-iphone-app-website-in-html5" target="_blank">Design &amp; Code a Cool iPhone App Website in HTML5</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">在本教程中我们将会体验到如何来构建一个很酷的iPhone应用程序, 使用的不是Cocoa touch, 而是HTML5和一些CSS3的视觉效果。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095863_7311.jpg"></p>
+<h2><span style="font-family:NSimSum; font-size:14px">21. 使用HTML5 Canvas优化图像显示<span>&nbsp;</span>(<a href="http://coding.smashingmagazine.com/2011/08/30/optimize-images-with-html5-canvas/" target="_blank">Optimize Images With HTML5 Canvas</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">每个网站都要用图片。如果你真的很为你的访客着想,那么就花一些时间优化你的图像显示。请记住,现代Web浏览器有足够的力量在用户的电脑上提升图像显示能力。在本文中,我将演示一个可行的解决方案。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095879_4313.jpg"></p>
+<h2><span style="font-family:NSimSum; font-size:14px">22.HTML5和文档的显示算法(<a href="http://coding.smashingmagazine.com/2011/08/16/html5-and-the-document-outlining-algorithm/" target="_blank">HTML5 And The Document Outlining Algorithm</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">现在,我们都知道应该使用HTML5制作网站。这里要讨论的是如何正确使用HTML5。重要的是HTML5有一个还没有被广为理解的内容:布局(sectioning),包括:段落(section),条目(article), 页边栏目(aside)和导航。理解这部分的内容,我们需要掌握文件的显示算法(outlining algorithm)。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">23. HTML5语义学<span>&nbsp;</span>(<a href="http://coding.smashingmagazine.com/2011/11/18/html5-semantics/" target="_blank">HTML5 Semantics</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML5有许多令人兴奋的新API: 本地存储、应用程序缓存,Web Worker</span></span><span style="font-family:NSimSum; font-size:14px">,2D绘图等。但是不要忘记,HTML5带给我们的30个新元素来标记文件和应用程序。</span><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">24. 从头编写HTML5布局(<a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/" target="_blank">Coding An HTML 5 Layout From Scratch</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span><span style="font-family:NSimSum"><span style="font-size:14px">HTML5和CSS3, 所有这些技术都是纯粹的工具, 在等待一个熟练的开发人员应用于正确的项目。为此，我们得到了一个全新的概念并修正我们的编码习惯以保证我们的网页功能。</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<p><span style="font-family:NSimSum"><span style="font-size:14px"><br>
+</span></span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">25.与HTML5视频同步<span>&nbsp;</span>(<a href="http://coding.smashingmagazine.com/2011/03/11/syncing-content-with-html5-video/">Syncing Content With HTML5 Video</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">相对于用户交互限制于文本、链接、图片和表&#26684;的HTML4, HTML5更倾向于使用多媒体。包括从一个通用的&lt;object&gt;元素改为更高层次的&lt;video&gt;和&lt;audio&gt;元素, 以及一套丰富的API来供在JavaScript中使用。</span></p>
+<p><span style="font-family:NSimSum"></span></p>
+<div style="font-size:14px"><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095904_3873.jpg"></div>
+<p></p>
+<p></p>
+<p></p>
+<h2><span style="font-family:NSimSum; font-size:14px">26.进入HTML5物理定位的大千世界<span>&nbsp;</span>(<a href="http://coding.smashingmagazine.com/2010/03/08/entering-the-wonderful-world-of-geo-location/" target="_blank">Entering The Wonderful World of Geo Location with HTL5</a>)</span></h2>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095929_6037.jpg"></p>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">27.如何使用HTML5 Canvas来创建进度条<span>&nbsp;</span>(<a href="http://www.splashnology.com/article/how-to-create-a-progress-bar-with-html5-canvas/478/" target="_blank">How to create a Progress bar with HTML5 Canvas</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">Web 2.0的进度条有了圆角、深度和体积,即阴影和梯度。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095948_3926.jpg"></p>
+<h2><span style="font-family:NSimSum; font-size:14px">28. CSS3和HTML5中的提示栏 (<a href="http://www.splashnology.com/article/tooltips-in-css3-and-html5/4053/" target="_blank">Tooltips in CSS3 and HTML5</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">仅仅使用CSS3和HTML5来实现简单的提示栏。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095970_1155.jpg"></p>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">29.使用HTML5 Canvas创建一个条形图<span>&nbsp;</span>(<a href="http://www.williammalone.com/articles/html5-canvas-javascript-bar-graph/" target="_blank">Create a Bar Graph with HTML5 Canvas and JavaScript</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">本教程将展示如何创建一个简单的条形图(HTML5 Canvas&#43;JavaScript)。这个代码可用本文末尾的下载。</span></p>
+<p><span style="font-family:NSimSum"></span></p>
+<div style="font-size:14px"><img alt="" src="http://my.csdn.net/uploads/201208/04/1344095987_7555.jpg"></div>
+<h2><span style="font-family:NSimSum; font-size:14px">30.转换到HTML5<span>&nbsp;</span>(<a href="http://webstandardssherpa.com/reviews/making-the-transition-to-html5/" target="_blank">Making the Transition to HTML5</a>)</span></h2>
+<p></p>
+<p><span style="font-family:NSimSum; font-size:14px">毫无疑问,每个人都在谈论HTML5。但是并不太清楚是谁在使用以及如何使用。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/05/1344096027_1013.jpg"></p>
+<p>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">31. JavaScript人脸识别&#43;Canvas&#43;Video=HTML&#30524;镜!&nbsp;(<a href="http://www.splashnology.com/article/40-new-html5css3-articles-and-tutorials/3384/" target="_blank">JavaScript Face Detection &#43; Canvas &#43; Video = HTML5 Glasses!</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">我一直想把CCV JavaScript库的人脸识别用起来。这个库给出的几个示例都是用于静态图像,但是通过查看代码,了解到它的显示使用的是画布(canvas)元素。于是, 我把它用在了HTML5视频的每一帧的处理上。</span></p>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/05/1344096105_2107.PNG"></p>
+<h2><span style="font-family:NSimSum; font-size:14px">32.HTML5的内容可编辑特性<span>&nbsp;</span>(<a href="http://www.splashnology.com/article/content-editable-feature-in-html5/2538/" target="_blank">Content editable Feature in HTML5</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span><span style="font-family:NSimSum"><span style="font-size:14px">HTML5有一个创新可以使浏览器中的网页成为能够编辑的页面，这一特性称为可编辑内容(content editable)。它适用于所有现代浏览器。为了使页面编辑,你需要把标签属性contenteditable = &quot; true &quot;。在这篇文章中我将展示这个新特性。</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">33.HTML5快速学习指南<span>&nbsp;</span>(<a href="http://freehtml5templates.com/downloads/free/html5-quick-learning-quide.pdf" target="_blank">HTML5 Quick Learning Guide</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML5语同时法兼容HTML4和XHTML1。&nbsp;</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<p><span style="font-family:NSimSum"><span style="font-size:14px"><br>
+</span></span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">34.HTML5 canvas基础<span>&nbsp;</span>(<a href="http://dev.opera.com/articles/view/html-5-canvas-the-basics/" target="_blank">HTML5 canvas – the basics</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">对于每个canvas元素可以使用“上下文(context)”(想像一下绘图板),你可以在其中使用JavaScript命令绘制。浏览器则为</span></span><span style="font-family:NSimSum; font-size:14px">绘图功能</span><span style="font-family:NSimSum; font-size:14px">实现多个画布上下文和不同的API。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">35. 如何让HTML5工作在IE和FireFox2中 (<a href="http://html5doctor.com/how-to-get-html5-working-in-ie-and-firefox-2/" target="_blank">How to get HTML5 working in IE and Firefox 2</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">HTML 5可能是最新和最好的技术,但一些浏览器没有原生支持新的语义元素。让我们暂时忘记这些性感的功能,专注于如何让元素正常呈现出来。</span></span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<h2><span style="font-family:NSimSum; font-size:14px">36. HTML5中的极致表单&nbsp;(<a href="http://www.html5rocks.com/en/tutorials/forms/html5forms/" target="_blank">Making Forms Fabulous with HTML5</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">并没有很多人对表单感兴趣, 但HTML5仍然带来一些大的改进。新表单元素、属性、输入类型,基于浏览器的验证、CSS3的样式技术和FormData对象可以让你轻松愉快的创建表单。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<p><span style="font-family:NSimSum; font-size:14px"><br>
+</span></p>
+<h2><span style="font-family:NSimSum; font-size:14px">37.新的HTML5表单元件<span>&nbsp;</span>(<a title="HTML5 Series: Part 3: New HTML5 Form Elements" href="http://www.xoriant.com/blog/software-product-development/html5-series-part-3-html5-form-elements.html" rel="bookmark" target="_blank">New
+ HTML5 Form Elements</a>)</span></h2>
+<p><span style="font-family:NSimSum"><span style="font-size:14px">表单是</span></span><span style="font-family:NSimSum; font-size:14px">任何网站中</span><span style="font-family:NSimSum; font-size:14px">最基本的特性。在HTML表单元素中可以使用包括文本框、复选框、单选框、按钮、下拉列表、密码录入框和文件选择器等。重点是要提高表单元件的可用性和有效性,这是好UI的基石,应当给予高度关注。</span></p>
+<p><span style="font-size:14px"></span>&nbsp;</p>
+<div><br>
+</div>
+<h2><span style="font-family:NSimSum; font-size:14px">38. HTML5中的占位符<span>&nbsp;</span>(<a href="http://diveintohtml5.info/forms.html" target="_blank">Placeholder Text in HTML5</a>)</span></h2>
+<p><span style="font-family:NSimSum; font-size:14px">&nbsp;</span><span style="font-family:NSimSum"><span style="font-size:14px">HTML5带给Web表单的</span></span><span style="font-family:NSimSum; font-size:14px">第一个改进</span><span style="font-family:NSimSum; font-size:14px">,就是可在文本框中设置占位符。占位符文字当字段内容为空时会被显示出来，一旦你点击(或移入)输入框中,占位符文本就消失了。</span></p>
+<p>&nbsp;</p>
+<div><br>
+</div>
+<h2><span style="font-family:NSimSum; font-size:14px">39.<span>&nbsp;HTML5输入相关属性的支持 (</span><a href="http://miketaylr.com/code/input-type-attr.html" target="_blank">HTML5 inputs and attribute support</a>)</span></h2>
+<p><img alt="" src="http://my.csdn.net/uploads/201208/05/1344096131_7169.jpg"></p>
+<p>转载请注明出处:http://blog.csdn.net/horkychen</p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.11-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="7831206" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>22</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>0</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/horkychen/article/details/7816512';">上一篇</span><a href="/horkychen/article/details/7816512" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">顾客细分：互联网行业要从农业精耕中学习</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/horkychen/article/details/7833616';">下一篇</span><a href="/horkychen/article/details/7833616" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">掌握HTML5中的多媒体--视频(video)</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1199550','HorkyChen','foot','7831206');">HTML5<em>（12）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('1199550', 'HorkyChen','foot','7831206');
+        });
+    </script>
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/HorkyChen/svc/GetSuggestContent/7831206",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "7831206",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = '39个让你受益的HTML5教程' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="71" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '7831206';
+    var commentscount = 11;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/HorkyChen/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/HorkyChen" target="_blank">
+    <img src="http://avatar.csdn.net/6/0/E/1_horkychen.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/HorkyChen" class="user_name" target="_blank">HorkyChen</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=HorkyChen','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                       <div class="ico_expert"  onclick="javascript:location='http://blog.csdn.net/experts/rule.html'" title="CSDN认证专家" style="cursor:pointer;width:60px;height:60px;background:url('http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/bokezhuanjiamiddle.png') no-repeat" ></div>
+                <div id="bms_box">
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>1109480次</span></li>
+    <li>积分：<span>13356</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog7.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：13356 </div>
+        </span>  </li>
+    <li>排名：<span>第565名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>213篇</span></li>
+    <li>转载：<span>29篇</span></li>
+    <li>译文：<span>45篇</span></li>
+    <li>评论：<span>336条</span></li>
+</ul>
+</ul>
+</div>
+
+
+
+
+<div id="custom_column_21604811" class="panel">
+<ul class="panel_head"><span>微博/MSN/EMail</span></ul>
+<ul class="panel_body">
+<br>
+新浪微博:Horky<br>
+QQ:324014340<br>
+Mail:horky.chen@gmail.com<br>
+微信公众号 (聚焦软件开发):<br>
+<img src="http://img.blog.csdn.net/20150705201941850" width="220" height="220">
+</ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>博客专栏</span></ul>
+    <ul class="panel_body" id="sp_column">
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/se-and-management.html" target="_blank"><img src="http://img.blog.csdn.net/20151123175420614" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/se-and-management.html" target="_blank">软件研发管理思考</a>
+    <p>文章：51篇</p>
+    <span>阅读：134550</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/webkit-in-deep.html" target="_blank"><img src="http://img.blog.csdn.net/20151123175419802" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/webkit-in-deep.html" target="_blank">WebKit研究</a>
+    <p>文章：35篇</p>
+    <span>阅读：272128</span>
+    </td>
+    </tr></table>
+    </ul>
+</div>
+
+<div id="custom_column_22760053" class="panel">
+<ul class="panel_head"><span>链接</span></ul>
+<ul class="panel_body">
+<a href="http://blog.csdn.net/hursing">Hursing</a><br>
+<a href="http://blog.csdn.net/zhchaoo">Chaoser</a><br>
+<a href="http://blog.csdn.net/delphinew">Joyer</a><br>
+<a href="http://blog.csdn.net/wy5761">行云</a><br>
+<a href="http://blog.csdn.net/scholar_ii">Scholar</a><br>
+<a href="http://blog.csdn.net/shediaoxu">XuSD</a><br>
+<a href="http://blog.csdn.net/rogeryi">Roger</a><br>
+<a href="http://www.stevesouders.com/">High Performance Websites</a><br>
+<a href="https://insouciant.org/">William Chan (Google)</a><br>
+<a href="http://glandium.org/">Glandium (Firefox)</a><br>
+<a href="http://dmitrysoshnikov.com/tag/ecma-262-3/">ECMA-262 in detail</a><br>
+<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/index.html#contents">HTML5 Living Standard</a><br>
+</ul>
+</div><div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/horkychen/article/details/7831206" title="39个让你受益的HTML5教程">39个让你受益的HTML5教程</a><span>(60294)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7935910" title="混合使用Objective-C，C++和Objective-C++">混合使用Objective-C，C++和Objective-C++</a><span>(44049)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/8629976" title="开发者应当了解的WebKit知识">开发者应当了解的WebKit知识</a><span>(30941)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7761199" title="为什么V8引擎这么快？">为什么V8引擎这么快？</a><span>(30896)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7833616" title="掌握HTML5中的多媒体--视频(video)">掌握HTML5中的多媒体--视频(video)</a><span>(17188)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7855814" title="Webkit中HTML5 Video的实现分析 (一) - 基本结构及HTMLMediaElement &amp; MediaPlayer">Webkit中HTML5 Video的实现分析 (一) - 基本结构及HTMLMediaElement &amp; MediaPlayer</a><span>(15183)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/10878489" title="Google Chrome中的高性能网络 (三)">Google Chrome中的高性能网络 (三)</a><span>(14306)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7862440" title="Webkit中HTML5 Video的实现分析 (二) - MediaPlayerFactory &amp; RenderVideo的绘制操作">Webkit中HTML5 Video的实现分析 (二) - MediaPlayerFactory &amp; RenderVideo的绘制操作</a><span>(11126)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/18892223" title="Android开发中的SQLite优化">Android开发中的SQLite优化</a><span>(10416)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7905666" title="X公司的流程改造之路 (二) [课程报告]">X公司的流程改造之路 (二) [课程报告]</a><span>(10397)</span>
+</li>
+</ul>
+</div>
+<div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/HorkyChen/article/category/603089" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">开发语言</a><span>(43)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/940531" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">软件工程</a><span>(40)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/513792" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">杂文</a><span>(33)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/513790" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">管理相关</a><span>(42)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1145417" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">JavaScript</a><span>(20)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1145418" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">WebKit</a><span>(68)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1183772" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">生产力</a><span>(42)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/513788" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Mac OS/iOS</a><span>(23)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1195446" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Coding</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/809842" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Python/Perl</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/513787" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux/Unix</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/903040" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">UML</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/935895" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/918875" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Windows</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1199550" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">HTML5</a><span>(13)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1200524" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">观点</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/1728525" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Chrome</a><span>(15)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/2644519" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据分析</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/HorkyChen/article/category/5604049" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">设计</a><span>(5)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/HorkyChen/article/month/2016/03">2016年03月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2016/02">2016年02月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2016/01">2016年01月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2015/11">2015年11月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2015/10">2015年10月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2015/09">2015年09月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2015/08">2015年08月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2015/07">2015年07月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2015/06">2015年06月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2015/04">2015年04月</a><span>(9)</span></li><li><a href="/HorkyChen/article/month/2015/03">2015年03月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2014/12">2014年12月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2014/11">2014年11月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2014/10">2014年10月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2014/07">2014年07月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2014/06">2014年06月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2014/05">2014年05月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2014/04">2014年04月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2014/03">2014年03月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2014/02">2014年02月</a><span>(6)</span></li><li><a href="/HorkyChen/article/month/2014/01">2014年01月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2013/12">2013年12月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2013/11">2013年11月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2013/09">2013年09月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2013/08">2013年08月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2013/07">2013年07月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2013/06">2013年06月</a><span>(11)</span></li><li><a href="/HorkyChen/article/month/2013/05">2013年05月</a><span>(11)</span></li><li><a href="/HorkyChen/article/month/2013/04">2013年04月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2013/03">2013年03月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2013/02">2013年02月</a><span>(5)</span></li><li><a href="/HorkyChen/article/month/2013/01">2013年01月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2012/12">2012年12月</a><span>(9)</span></li><li><a href="/HorkyChen/article/month/2012/11">2012年11月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2012/10">2012年10月</a><span>(11)</span></li><li><a href="/HorkyChen/article/month/2012/09">2012年09月</a><span>(7)</span></li><li><a href="/HorkyChen/article/month/2012/08">2012年08月</a><span>(20)</span></li><li><a href="/HorkyChen/article/month/2012/07">2012年07月</a><span>(34)</span></li><li><a href="/HorkyChen/article/month/2012/06">2012年06月</a><span>(31)</span></li><li><a href="/HorkyChen/article/month/2012/05">2012年05月</a><span>(9)</span></li><li><a href="/HorkyChen/article/month/2011/12">2011年12月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2011/11">2011年11月</a><span>(6)</span></li><li><a href="/HorkyChen/article/month/2011/10">2011年10月</a><span>(4)</span></li><li><a href="/HorkyChen/article/month/2011/09">2011年09月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2011/07">2011年07月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2011/06">2011年06月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2011/05">2011年05月</a><span>(3)</span></li><li><a href="/HorkyChen/article/month/2011/04">2011年04月</a><span>(8)</span></li><li><a href="/HorkyChen/article/month/2011/03">2011年03月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2011/02">2011年02月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2011/01">2011年01月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2010/12">2010年12月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2010/11">2010年11月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2010/10">2010年10月</a><span>(3)</span></li><li><a href="/HorkyChen/article/month/2010/06">2010年06月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2010/05">2010年05月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2010/03">2010年03月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2010/02">2010年02月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2009/12">2009年12月</a><span>(1)</span></li><li><a href="/HorkyChen/article/month/2009/11">2009年11月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2009/09">2009年09月</a><span>(2)</span></li><li><a href="/HorkyChen/article/month/2009/02">2009年02月</a><span>(1)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/horkychen/article/details/7905666" title="X公司的流程改造之路 (二) [课程报告]">X公司的流程改造之路 (二) [课程报告]</a><span>(22)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/8685473" title="为什么集成测试比单元测试更重要">为什么集成测试比单元测试更重要</a><span>(14)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/8462574" title="WebKit模块化分析">WebKit模块化分析</a><span>(12)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7574614" title="去除Visual Paradigm输出图片中的浮水印">去除Visual Paradigm输出图片中的浮水印</a><span>(12)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/8271317" title="软件公司中的维护团队建设">软件公司中的维护团队建设</a><span>(12)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7831206" title="39个让你受益的HTML5教程">39个让你受益的HTML5教程</a><span>(11)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7935910" title="混合使用Objective-C，C++和Objective-C++">混合使用Objective-C，C++和Objective-C++</a><span>(9)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7640052" title="[WebKit]为JavaScript Binding添加新DOM对象的三种方式及实作">[WebKit]为JavaScript Binding添加新DOM对象的三种方式及实作</a><span>(8)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7800048" title="GDB秘技--调试时执行代码中的特定函数">GDB秘技--调试时执行代码中的特定函数</a><span>(8)</span>
+</li>
+<li>
+<a href="/horkychen/article/details/7710279" title="X公司的流程改造之路 (一) [课程报告]">X公司的流程改造之路 (一) [课程报告]</a><span>(6)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/wuyuxing24/article/details/51524984" 
+target="_blank">*Android属性动画ObjectAnimator源码简单分析</a></li>
+<li><a href="http://blog.csdn.net/yanghua_kobe/article/details/51503885" 
+target="_blank">* Apache Flink fault tolerance源码剖析(一)</a></li>
+<li><a href="http://blog.csdn.net/lfdfhl/article/details/51435968" 
+
+target="_blank">*自定义View系列教程04--Draw源码分析及其实践</a></li>
+<li><a 
+
+href="http://blog.csdn.net/hanhailong726188/article/details/50687466"target="_blank">*Rebound-Android的弹簧动画库</a></li>
+<li><a href="http://blog.csdn.net/gj19890923/article/details/51333899" 
+target="_blank">*neutron-server的启动流程(一)</a></li>
+<li><a href="http://blog.csdn.net/u010143774/article/details/51460947" target="_blank">*Hadoop中Map端shuffle源码解析</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/horkychen/article/details/46630735#comments">如何避免类的膨胀</a>
+    <p style="margin:0px;"><a href="/u010850027" class="user_name">u010850027</a>:
+博文介绍了如何避免类的膨胀 ，很详细的讲解，图文并茂，深入浅出，感谢博主的分享，期待后续博文，加油！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/50959771#comments">iOS Safari阅读模式研究</a>
+    <p style="margin:0px;"><a href="/guoyu151352" class="user_name">guoyu151352</a>:
+你好，请问，您github中safari_reader_clicked.js中的ReaderJSCo...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/35735103#comments">内存分配器 (Memory Allocator)</a>
+    <p style="margin:0px;"><a href="/yuankk0" class="user_name">yuankk0</a>:
+学习了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/35735103#comments">iOS Safari阅读模式研究</a>
+    <p style="margin:0px;"><a href="/L_H_Y_1990" class="user_name">L_H_Y_1990</a>:
+不明觉厉
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/7761199#comments">为什么V8引擎这么快？</a>
+    <p style="margin:0px;"><a href="/ztftrue" class="user_name">ztftrue</a>:
+看不懂
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/7831206#comments">39个让你受益的HTML5教程</a>
+    <p style="margin:0px;"><a href="/bcbobo21cn" class="user_name">bcbobo21cn</a>:
+javascript也可以人脸识别么；学习了；
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/50816710#comments">页面性能的基础因素 - 《Designing for Performance》</a>
+    <p style="margin:0px;"><a href="/u013047005" class="user_name">u013047005</a>:
+很丰富呢，感谢楼主分享，很值得一读。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/50823594#comments">网络性能评价方法</a>
+    <p style="margin:0px;"><a href="/u013047005" class="user_name">u013047005</a>:
+很丰富啊，感谢楼主分享
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/7701003#comments">程序员职业生涯探讨</a>
+    <p style="margin:0px;"><a href="/u013036959" class="user_name">u013036959</a>:
+学习了，谢谢博主分享！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/horkychen/article/details/7701003#comments">程序员职业生涯探讨</a>
+    <p style="margin:0px;"><a href="/u013036959" class="user_name">u013036959</a>:
+还没找到工作，这些都太远了
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+ </div>   
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=78702"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+    <script type="text/javascript" src="http://js.tongji.linezing.com/3488814/tongji.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+</body>
+</html>   
+ 

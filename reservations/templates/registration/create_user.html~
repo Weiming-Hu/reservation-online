@@ -183,10 +183,6 @@ function validate_form(thisform)
     {
         alert("昵称已经被使用！请更换。");
         return false;
-    } else
-    {
-        alert(htmlObj.responseText);
-        return false;
     }
 }
 

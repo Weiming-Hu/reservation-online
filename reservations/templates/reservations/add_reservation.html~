@@ -5,6 +5,15 @@
 <title>在线预约系统：添加预约</title>
 </head>
 
+<link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css' />
+
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href="{% static "reservations/jquery.weekcalendar.css" %}"/>
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'></script>
+<script type='text/javascript' src="{% static "reservations/jquery.weekcalendar.js" %}"></script>
+
 
 <script>
 
@@ -19,12 +28,45 @@ function available_end_hour() {
 	}
 }
 
+// check date information
+function validate_reservation(thisform)
+{
+    // check datepicker format
+    datepicker = document.getElementById("datepicker").value;
+    var reg = /^(\d{2})-(\d{2})$/;
+    if (datepicker.match(reg).length == 0)
+    {
+        alert("您输入的日期格式有误！日期格式：dd-mm");
+        return false;
+    }
+
+    // check reservation time availability
+    htmlObj = $.ajax({
+        url: "{% url 'reservations:add_check' %}",
+        data: {
+            form_date: datepicker,
+            start_hour: document.getElementById("start_h").value,
+            start_minute: document.getElementById("start_m").value,
+            end_hour: document.getElementById("end_h").value,
+            end_minute: document.getElementById("end_m").value,
+            },
+        async: false,
+        });
+    if (htmlObj.responseText != "OK")
+    {
+        alert(htmlObj.responseText);
+        return false;
+    }
+    return true;
+}
 
 </script>
 
-<body  >
+<body>
 
-<form action="{% url 'reservations:add_submit' %}" method="post" style="width: 400px;z-index:999;margin:20px;">
+<h2>添加预约</h2>
+
+<form action="{% url 'reservations:add_submit' %}" method="post" style="width: 400px;z-index:999;margin:20px;" onsubmit="return validate_reservation(this)">
 {% csrf_token %}
 
 <label for="applicant">申请人：</label>
@@ -37,7 +79,7 @@ function available_end_hour() {
 
 <label for="start">开始时间：</label>
 <div id="start">
-	<select name="start_hour">
+	<select name="start_hour" id="start_h">
 		<option value="8" onclick="available_end_hour()">8</option>
 		<option value="9" onclick="available_end_hour()">9</option>
 		<option value="10" onclick="available_end_hour()">10</option>
@@ -54,7 +96,7 @@ function available_end_hour() {
 		<option value="21" onclick="available_end_hour()">21</option>
 	</select>
 	:
-	<select name="start_minute">
+	<select name="start_minute" id="start_m">
 		<option value="0">00</option>
 		<option value="30">30</option>
 </select>
@@ -62,7 +104,7 @@ function available_end_hour() {
 
 <label for="end">结束时间：</label>
 <div id="end">
-	<select name="end_hour">
+	<select name="end_hour" id="end_h">
 		<option value="9">9</option>
 		<option value="10">10</option>
 		<option value="11">11</option>
@@ -79,7 +121,7 @@ function available_end_hour() {
 		<option value="22">22</option>
 	</select>
 	:
-	<select name="end_minute">
+	<select name="end_minute" id="end_m">
 		<option value="0">00</option>
 		<option value="30">30</option>
 	</select>
@@ -101,8 +143,8 @@ function available_end_hour() {
 <script src="http://dbushell.github.com/Pikaday/pikaday.js"></script>
 <script>
 {% if 1 %}
-    var today=new Date();
-    var weekday=today.getDay();
+    var today = new Date();
+    var weekday = today.getDay() ? today.getDay() : 7;
     this_monday = new Date(1000*60*60*24*(1-weekday) + today.getTime());
     next_week_last_day = new Date(this_monday.valueOf() + 13 * 24 * 60 * 60 * 1000);
     var picker = new Pikaday({ 

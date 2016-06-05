@@ -42,15 +42,20 @@ def check_reservation_time(start_time, end_time):
 #########################################################################################################
     now = datetime.datetime.now()
     if start_time >= end_time:
-        return (False, "start time should be prior to the end time")
+        #return (False, "start time should be prior to the end time")
+        return (False, "开始时间必须早于结束时间！")
     if start_time < now:
-        return (False, "start time should be later than or same with the current time")
+        #return (False, "start time should be later than or same with the current time")
+        return (False, "开始时间必须晚于当前时间！")
     if end_time >= datetime.datetime(now.year, now.month, now.day) + datetime.timedelta(days = (14 - now.weekday())):
-        return (False, "please make reservation for this week and the next week")
+        #return (False, "please make reservation for this week and the next week")
+        return (False, "只能够预约这周和下周的时间！")
     if start_time.day != end_time.day:
-        return (False, "please make reservation within a single day")
+        #return (False, "please make reservation within a single day")
+        return (False, "请不要预约超过一天！")
     if end_time - start_time > datetime.timedelta(hours=3):
-        return (False, "the longest time is 3 hours")
+        #return (False, "the longest time is 3 hours")
+        return (False, "一次性最长预约3小时！")
     
     records_of_same_day = Record.objects.filter(
         start_time__gte=datetime.datetime(start_time.year, start_time.month, start_time.day)).filter(
@@ -59,12 +64,13 @@ def check_reservation_time(start_time, end_time):
     for record in records_of_same_day:
         # if your reservation period overlaps with any of the existed, it is invalid
         if check_overlapping((start_time, end_time), (record.start_time, record.end_time)):
-            return (False, "Your reservation overlaps the existed")
+            #return (False, "Your reservation overlaps the existed")
+            return (False, "该时间段与已有预约重叠！")
     
     return (True,'you are good to go')
     
     
-
+@secure_required
 def welcome(request):
     this_week_past = []
     this_week_future = []
@@ -333,10 +339,35 @@ def check_exist_account(request):
     # return false when the account or the nickname has already been used
     account = request.GET.get("account")
     nickname = request.GET.get("nickname")
-    result = ['0', '0', account, nickname]
+    result = ['0', '0']
     for user in User.objects.all():
         if account == user.username:
             result[0] = '1'
         if nickname == user.last_name:
             result[1] = '1'
     return HttpResponse(','.join(result))
+
+
+@login_required(login_url='reservations:auth_login')
+def add_reservation_check(request):
+    now = datetime.datetime.now()
+    applicant = request.user.username
+
+    reservation_date = request.GET['form_date']
+    reservation_month = int(reservation_date.split('-')[1])
+    reservation_day = int(reservation_date.split('-')[0])
+
+    start_hour = int(request.GET['start_hour'])
+    start_minute = int(request.GET['start_minute'])
+    end_hour = int(request.GET['end_hour'])
+    end_minute = int(request.GET['end_minute'])
+    
+    start_time_form = datetime.datetime(
+        now.year, reservation_month, reservation_day, start_hour, start_minute)
+    end_time_form = datetime.datetime(
+        now.year, reservation_month, reservation_day, end_hour, end_minute)
+    flag = check_reservation_time(start_time_form, end_time_form)
+    if (flag[0]):
+        return HttpResponse("OK")
+    else:
+        return HttpResponse(flag[1])

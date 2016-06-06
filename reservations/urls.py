@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^auth/change_password/done/$', views.password_change_submit, name='auth_change_password_submit'),
     url(r'^clean_old_records/$', views.clean_old_records, name='clean_old_records'),
     url(r'^clean_old_records/submit/$', views.clean_old_records_submit, name='clean_old_records_submit'),
+    url(r'^clean_old_records/show_items_to_delete/$', views.show_items_to_delete, name='show_items_to_delete'),
 ]

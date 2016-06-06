@@ -92,9 +92,24 @@
 		
 	});
 
+// check jquery
+function check_jquery() 
+{
+    if (typeof jQuery == "function")
+    {
+        return true;
+    }
+    else
+    {
+        alert("必要在线组件无法加载，因此你可能无法看到正常显示的网页。请检查你的网络连接。\n如果还出现此问题，请联系开发人员。");
+        return false;
+    }
+}
+
 </script>
+
 </head>
-<body>
+<body onload="check_jquery()">
     <div id="one">
         <h1>轻音社在线预约系统</h1>
         <p class="description">

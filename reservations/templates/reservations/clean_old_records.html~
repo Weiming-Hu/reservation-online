@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel='stylesheet' type='text/css' href='http://libs.baidu.com/jqueryui/1.7.2/themes/smoothness/jquery-ui.css' />
+
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href="{% static "reservations/jquery.weekcalendar.css" %}"/>
+
+<script type='text/javascript' src='http://libs.baidu.com/jquery/1.3.2/jquery.min.js'></script>
+<script type='text/javascript' src='http://libs.baidu.com/jqueryui/1.7.2/jquery-ui.min.js'></script>
+<script type='text/javascript' src="{% static "reservations/jquery.weekcalendar.js" %}"></script>
+
+<script>
+function count_items_to_delete(thisform)
+{
+    form_month = document.getElementById("form_month").value;
+    form_day = document.getElementById("form_day").value;
+    htmlObj = $.ajax({
+        url: "{% url 'reservations:show_items_to_delete' %}",
+        data: {
+            form_month: form_month,
+            form_day: form_day,
+            },
+        async: false,
+        });
+    result = ["共有", htmlObj.responseText, "个预约记录将会被删除。他们会发送到你登记的邮箱中。"]
+    alert(result.join(' '));
+    return false;
+}
+
+</script>
+
 <meta charset="UTF-8">
 <title>清理过期预约</title>
 </head>
 <body>
+
+<h2>清理过期预约</h2>
 
 <form action="{% url 'reservations:clean_old_records_submit' %}" method="post" style="width: 400px;z-index:999;margin:20px;">
 {% csrf_token %}
 
 <label for="clean_date">清理这个日期以前的所有记录：</label>
 <div id="clean_date">
-	<select name="clean_month">
+	<select name="clean_month" id="form_month">
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -26,7 +58,7 @@
 		<option value="12">12</option>
 	</select>
 	月
-	<select name="clean_day">
+	<select name="clean_day" id="form_day">
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -62,6 +94,7 @@
 日
 </div><br />
 
+<button type='button'  onclick="count_items_to_delete()">统计总数"</button>
 <input type="submit" value="开始清理" />
 </form>
 

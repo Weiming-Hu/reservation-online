@@ -260,6 +260,35 @@ def clean_old_records(request):
         return HttpResponseRedirect(reverse('reservations:index'))
 
 
+@login_required(login_url='reservations:index')
+def clean_old_records_submit(request):
+    # format should be 2016-04-23 18:00:00
+    now = datetime.datetime.now()
+    format_time = "{year}-{month}-{day} {hour}:{minute}:{second}".format(
+            year = now.year,
+            month = request.POST["clean_month"],
+            day = request.POST["clean_day"],
+            hour = 0,
+            minute = 0,
+            second = 0)
+    send_email(format_time)
+    delete_records_older_than_one_month(format_time)
+    return HttpResponseRedirect(reverse('reservations:index'))
+
+
+@login_required(login_url='reservations:index')
+def show_items_to_delete(request):
+    format_time = "{year}-{month}-{day} {hour}:{minute}:{second}".format(
+            year = datetime.datetime.now().year,
+            month = int(request.GET['form_month']),
+            day = int(request.GET['form_day']),
+            hour = 0,
+            minute = 0,
+            second = 0)
+    execute_result = Record.objects.filter(end_time__lte = format_time)
+    return HttpResponse(len(execute_result))
+
+
 def delete_records_older_than_one_month(format_time):
     execute_result = Record.objects.filter(end_time__lte = format_time)
     for item in execute_result:
@@ -283,6 +312,7 @@ def prepare_attachment(format_time):
         for line in result:
             writer.writerow(line)
         return True
+
 
 def send_email(format_time):
     sender = "reservation_rec@sina.com"
@@ -315,23 +345,6 @@ def send_email(format_time):
         print ("Error: smtplib.SMTPException")
     finally:
         smtpObj.quit()
-
-
-@login_required(login_url='reservations:index')
-def clean_old_records_submit(request):
-    # format should be 2016-04-23 18:00:00
-    now = datetime.datetime.now()
-    format_time = "{year}-{month}-{day} {hour}:{minute}:{second}".format(
-        year = now.year,
-        month = request.POST["clean_month"],
-        day = request.POST["clean_day"],
-        hour = 0,
-        minute = 0,
-        second = 0)
-    send_email(format_time)
-    delete_records_older_than_one_month(format_time)
-    return HttpResponseRedirect(reverse('reservations:index'))
-
 
 def check_exist_account(request):
     # check exist account

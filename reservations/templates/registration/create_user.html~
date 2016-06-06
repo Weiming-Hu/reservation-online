@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>轻音社在线预约系统：申请账号</title>
+	<style type="text/css">
+    #passStrength{height:6px;width:120px;border:1px solid #ccc;padding:2px;}
+    .strengthLv1{background:red;height:6px;width:40px;}
+    .strengthLv2{background:orange;height:6px;width:80px;}
+    .strengthLv3{background:green;height:6px;width:120px;}
+    </style>
+</head>
+
+<link rel='stylesheet' type='text/css' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css' />
+
+{% load staticfiles %}
+<link rel='stylesheet' type='text/css' href="{% static "reservations/jquery.weekcalendar.css" %}"/>
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js'></script>
+<script type='text/javascript' src="{% static "reservations/jquery.weekcalendar.js" %}"></script>
+
+<script>
+
+// check username: types of chars
+function checkUsername()
+{
+	var reg = new RegExp("^[_a-zA-Z0-9]+$");
+    var invalid_chr = document.getElementById("username").value.replace(reg, "");
+	if (invalid_chr.length > 0)
+	{
+		//alert("仅允许输入：数字 英文 下划线_ ");
+        document.getElementById("checkAccount").style.color = "red";
+        document.getElementById("checkAccount").innerHTML = "NO,仅允许输入：数字 英文 下划线_";
+        document.getElementById("checkAccount").focus();
+    } else
+    {
+        document.getElementById("checkAccount").innerHTML = "";
+    }
+}
+
+// check password: strength
+function PasswordStrength(passwordID,strengthID){
+    this.init(strengthID);
+    var _this = this;
+    document.getElementById(passwordID).onkeyup = function(){
+        _this.checkStrength(this.value);
+    }
+};
+
+PasswordStrength.prototype.init = function(strengthID){
+    var id = document.getElementById(strengthID);
+    var div = document.createElement('div');
+    var strong = document.createElement('strong');
+    this.oStrength = id.appendChild(div);
+    this.oStrengthTxt = id.parentNode.appendChild(strong);
+};
+
+PasswordStrength.prototype.checkStrength = function (val){
+    var aLvTxt = ['','弱','中','强'];
+    var lv = 0;
+    if(val.match(/[a-z]/g)){lv++;}
+    if(val.match(/[0-9]/g)){lv++;}
+    if(val.match(/(.[^a-z0-9])/g)){lv++;}
+    if(val.length < 6){lv=0;}
+    if(lv > 3){lv=3;}
+    this.oStrength.className = 'strengthLv' + lv;
+    this.oStrengthTxt.innerHTML = aLvTxt[lv];
+};
+
+// check password retype: are they the same
+function checkPsw() {
+    var psw1 = document.getElementById("pass1").value;
+    var psw2 = document.getElementById("pass2").value;
+    if (psw2 == "" || psw1 == "")
+    {
+        document.getElementById("checkPass").innerHTML = "";
+        return;
+    }
+    if (psw1 != psw2)
+    {
+        document.getElementById("checkPass").style.color = "red";
+        document.getElementById("checkPass").innerHTML = "NO,两次输入的密码不一致!";
+        document.getElementById("pass2").focus();
+    } else
+    {
+        document.getElementById("checkPass").innerHTML = "";
+    }
+}
+
+// check emai: format
+function isEmail() {
+    var email=document.getElementById("mail").value;  
+    if(email=="")  
+    {  
+        //alert("请输入邮箱！");  
+        document.getElementById("checkMail").style.color="red";  
+        document.getElementById("checkMail").innerHTML="NO,请输入邮箱";  
+        document.getElementById("mail").focus();  
+        return false;   
+    }  
+    var pattern= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;  
+    strEmail=pattern.test(email);  
+    if (strEmail)  
+    {   
+        document.getElementById("checkMail").innerHTML="";
+        return true;  
+    }  
+    else  
+    {  
+        document.getElementById("checkMail").style.color="red";//设置邮箱不可用时的字体颜色  
+        document.getElementById("checkMail").innerHTML="NO,请输入正确的邮箱";  
+        document.getElementById("mail").focus();  
+        //alert("邮箱格式不正确！");
+    }  
+}
+
+//check form
+function validate_required(field, desiredTxt)
+{
+    with (field)
+    {
+        if (value != desiredTxt)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
+
+function validate_form(thisform)
+{
+    not_empty_check_list = Array(username, displayname, mail, pass1, pass2);
+    empty_check_list = Array(checkAccount, checkMail, checkPass);
+    errorFieldList = Array();
+
+    // check form information
+    with (thisform)
+    {
+        while (not_empty_check_list.length)
+        {
+            field = not_empty_check_list.pop()
+            if (validate_required(field, "") == true)
+            {
+                errorFieldList.push(field);
+            }
+        }
+        while (empty_check_list.length)
+        {
+            field = empty_check_list.pop();
+            if (field.innerHTML != "")
+            {
+                errorFieldList.push(field);
+            }
+        }
+        if (errorFieldList.length > 0)
+        {
+            alert("您的输入有误！");
+            return false;
+        }
+    }
+
+    // check if the account has already been used
+    account = document.getElementById("username").value;
+    nickname = document.getElementById("displayname").value;
+    htmlObj = $.ajax({
+        url: "{% url 'reservations:check_exist_account' %}",
+        data: {account: account, nickname: nickname},
+        async:false,
+        });
+    if (htmlObj.responseText == '1,1')
+    {
+        alert("账户名和昵称已经被使用！请更换。");
+        return false;
+    } else if (htmlObj.responseText == '1,0')
+    {
+        alert("账户名已经被使用！请更换。");
+        return false;
+    } else if (htmlObj.responseText == '0,1')
+    {
+        alert("昵称已经被使用！请更换。");
+        return false;
+    }
+}
+
+
+</script>
+
+<body>
+
+<h2>创建账户</h2>
+
+<form action="{% url 'reservations:auth_create_user_submit' %}" method="post" style="width: 400px;z-index:999;margin:20px;" onsubmit="return validate_form(this)">
+{% csrf_token %}
+
+<label for="applicant">*账户：</label>
+<div id="applicant">
+    <input name="applicant" placeholder="英文字母 数字 下划线" autocomplete="off" id="username" onKeyUp="checkUsername()" maxlength=16 /><br>
+<span id="checkAccount"></span>
+</div><br />
+
+<label for="nickname">*昵称：</label>
+<div id="nickname" >
+    <input name="nickname" id="displayname" placeholder="显示预约时使用的名字" autocomplete="off" maxlength=10>
+</div><br />
+
+<label for="email">*邮箱地址：</label>
+<div id="email" >
+    <input id="mail" name="email_address" onblur="isEmail()"/><br>
+<span id="checkMail"></span>
+</div><br />
+
+<label for="psw1">*密码：</label>
+<div id="psw1">
+	<input type="password" name="password" id="pass1" maxlength="12" onblur="checkPsw()"/>
+	<div class="pass-wrap">
+	    <em>密码强度</em>
+	    <div id="passStrength"></div>
+	</div>
+</div><br />
+
+<label for="psw2">*再次输入密码：</label>
+<div id="psw2">
+    <input type="password" name="password" id="pass2" maxlength="12" onblur="checkPsw()"/><br>
+<span id="checkPass"></span>
+</div><br />
+
+
+<input type="submit" value="申请账户" />
+</form>
+
+<p>提交申请后，请联系管理员激活您的账户。</p>
+
+<a href="{% url 'reservations:index' %}"><button>回到主页</button></a>
+
+</body>
+</html>
+
+<script type="text/javascript">
+new PasswordStrength('pass1','passStrength');
+</script>

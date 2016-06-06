@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>在线预约系统：取消预约</title>
+</head>
+<body>
+
+<h2>删除预约</h2>
+
+<p>以下是您的预约：</p>
+
+{% if available_records %}
+<form action="{% url 'reservations:cancle_submit' %}" method="post">
+{% csrf_token %}
+	{% for record in available_records %}
+	    <input type="checkbox" name="checkbox_list" id="record{{ forloop.counter }}" value="{{ record.id }}" />
+	    <label for="record{{ forloop.counter }}">{{ record.user.last_name }} : {{ record.start_time }} - {{ record.end_time }}</label><br />
+	{% endfor %}
+<input type="submit" value="删除预约" />
+</form>
+{% else %}
+	<p>没有可以删除的预约</p>
+{% endif %}
+<div>-------------------------------------------------</div>
+
+<a href="{% url 'reservations:index' %}"><button>回到主页</button></a>
+
+</body>
+</html>

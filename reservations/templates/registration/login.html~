@@ -5,7 +5,7 @@
 {% block content %}
 
 {% if form.errors %}
-<p>{{ form.errors.as_json }}</p>
+<p>{{ form.errors.__all__.message }}</p>
 {% endif %}
 
 <h2>请登录</h2>
@@ -27,7 +27,7 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
+<a href="{% url 'reservations:index' %}"><button>回到主页</button></a>
 {% endblock %}
 
-<a href="{% url 'reservations:index' %}"><button>回到主页</button></a>
 

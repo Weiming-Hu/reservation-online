@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -126,3 +127,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'reservations/static')
 
 LOGIN_REDIRECT_URL = '/reservations/'
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+
+# email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.sina.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'reservation_rec@sina.com'
+EMAIL_HOST_PASSWORD = 'qingyinshe'
+DEFAULT_FROM_EMAIL = 'reservation_rec@sina.com'

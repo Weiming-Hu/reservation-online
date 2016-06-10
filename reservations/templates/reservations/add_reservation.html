@@ -35,7 +35,7 @@ function validate_reservation(thisform)
     var reg = /^(\d{2})-(\d{2})$/;
     if (datepicker.match(reg).length == 0)
     {
-        alert("您输入的日期格式有误！日期格式：dd-mm");
+        alert("您输入的日期格式有误！日期格式：mm-dd");
         return false;
     }
 
@@ -68,9 +68,9 @@ function validate_reservation(thisform)
 <form action="{% url 'reservations:add_submit' %}" method="post" style="width: 400px;z-index:999;margin:20px;" onsubmit="return validate_reservation(this)">
 {% csrf_token %}
 
-<label for="applicant">申请人：</label>
+<label for="applicant">乐队：</label>
 <div id="applicant">
-	<input name="applicant" disabled='disabled' value="{{ applicant_name }}">
+	<input name="applicant" value="{{ applicant_name }}">
 </div><br />
 
 <label for="reserve_date">预约日期：</label>
@@ -153,7 +153,7 @@ function validate_reservation(thisform)
         firstDay: 1,
         minDate: new Date(),
         maxDate: next_week_last_day,
-        format: 'DD-MM',
+        format: 'MM-DD',
     });
 {% endif %}
 </script>

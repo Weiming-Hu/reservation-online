@@ -32,7 +32,7 @@ function checkUsername()
 		//alert("仅允许输入：数字 英文 下划线_ ");
         document.getElementById("checkAccount").style.color = "red";
         document.getElementById("checkAccount").innerHTML = "NO,仅允许输入：数字 英文 下划线_";
-        document.getElementById("checkAccount").focus();
+        //document.getElementById("checkAccount").focus();
     } else
     {
         document.getElementById("checkAccount").innerHTML = "";
@@ -81,7 +81,7 @@ function checkPsw() {
     {
         document.getElementById("checkPass").style.color = "red";
         document.getElementById("checkPass").innerHTML = "NO,两次输入的密码不一致!";
-        document.getElementById("pass2").focus();
+        //document.getElementById("pass2").focus();
     } else
     {
         document.getElementById("checkPass").innerHTML = "";
@@ -96,7 +96,7 @@ function isEmail() {
         //alert("请输入邮箱！");  
         document.getElementById("checkMail").style.color="red";  
         document.getElementById("checkMail").innerHTML="NO,请输入邮箱";  
-        document.getElementById("mail").focus();  
+        //document.getElementById("mail").focus();  
         return false;   
     }  
     var pattern= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;  
@@ -110,7 +110,7 @@ function isEmail() {
     {  
         document.getElementById("checkMail").style.color="red";//设置邮箱不可用时的字体颜色  
         document.getElementById("checkMail").innerHTML="NO,请输入正确的邮箱";  
-        document.getElementById("mail").focus();  
+        //document.getElementById("mail").focus();  
         //alert("邮箱格式不正确！");
     }  
 }
@@ -204,7 +204,7 @@ function validate_form(thisform)
 
 <label for="nickname">*昵称：</label>
 <div id="nickname" >
-    <input name="nickname" id="displayname" placeholder="显示预约时使用的名字" autocomplete="off" maxlength=10>
+    <input name="nickname" id="displayname" placeholder="显示预约时使用的名字" autocomplete="off" maxlength=16>
 </div><br />
 
 <label for="email">*邮箱地址：</label>

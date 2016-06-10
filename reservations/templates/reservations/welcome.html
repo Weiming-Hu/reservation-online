@@ -73,12 +73,13 @@
 					$event.find(".time").css({"backgroundColor": "#999", "border":"1px solid #888"});
 				}
 			},
-			noEvents : function() {
-				displayMessage("There are no events for this week");
-			},
             data: 
             [{% for item in records %}
-                {"id":{{ item.id }}, "start":"{{ item.start }}", "end":"{{ item.end }}", "title":"{{ item.title }}"},
+            {% if is_staff %}
+                {"id":{{ item.id }}, "start":"{{ item.start }}", "end":"{{ item.end }}", "title":"{{ item.displayname }}//{{ item.title }}"},
+            {% else %}
+                {"id":{{ item.id }}, "start":"{{ item.start }}", "end":"{{ item.end }}", "title":"{{ item.displayname }}"},
+            {% endif %}
             {% endfor %}]
 
 		});
@@ -108,49 +109,40 @@ function check_jquery()
 
 </script>
 
+<link type="text/css" href="{% static 'reservations/lrtk.css' %}" rel="stylesheet" />
+<!--[if lt IE 9]>
+    <script src="{% static 'reservations/html5.js' %}"></script>
+<![endif]-->
+<script type="text/javascript" src="{% static 'reservations/jquery.color-rgba-patch.js' %}"></script>
+<script type="text/javascript" src="{% static 'reservations/example.js' %}"></script>
+
 </head>
 <body onload="check_jquery()">
-    <div id="one">
-        <h1>轻音社在线预约系统</h1>
-        <p class="description">
-            <strong>
-                {% if status %}
-                    {{ id_name }}
-                {% else %}
-                    游客
-                {% endif %}
-            </strong>
-            ，欢迎来到轻音社！
-        </p>
-    </div>
 
-    <div id="two">
-        <a href="auth/login"><button id="log_in">登录</button></a>
-        <a href="auth/logout"><button id="log_out">退出登录</button></a>
-        <a href="auth/create_user"><button id="log_out">创建账户</button></a>
-        <a href="auth/change_password"><button id="change_password">修改密码</button></a>
-
-        <a href="add/"><button id="add_reservation">添加预约</button></a>
-        <a href="cancle/"><button id="cancle_reservation">删除预约</button></a>
-        <button type="button" id="about_button">轻音社</button>
-
-        {% if status %}
-            {% if id_name == "管理员" %}
-                <a href="clean_old_records/"><button id="clean_old_records">清理过期预约</button></a>
-            {% endif %}
-        {% endif %}
-    </div>
+<div class="nav-wrap">
+	<ul class="group" id="example-one">
+        <li><h1 style="color:white;line-height:4px">轻音社在线预约系统</h1></li>
+        <li><a style="cursor:default"><strong>{% if status %}{{ id_name }}{% else %}游客{% endif %}</strong>，欢迎！</a></li>
+        <li class="current_page_item"><a style="cursor:pointer;" id="about_button">轻音社</a></li>
+		<li><a href="auth/login">登录</a></li>
+		<li><a href="add/">添加预约</a></li>
+		<li><a href="cancle/">删除预约</a></li>
+		<li><a href="auth/create_user">创建账户</a></li>
+		<li><a href="auth/change_password">修改密码</a></li>
+		<li><a href="auth/logout">退出登录</a></li>
+        <li>{% if status %}{% if is_staff %}<a href="clean_old_records/">清理过期预约</a>{% endif %}{% endif %}</li>
+	</ul>
+</div>
 
 
-    <p></p>
-    <div id='calendar'></div>
+<div id='calendar'></div>
 
-    <div id="about">
-		<h2>Summary</h2>
-		<p>
-            轻音社是....
-		</p>
-	</div>
+<div id="about">
+<h2>Summary</h2>
+    <p>
+        轻音社是....
+    </p>
+</div>
 </body>
 </html>
 

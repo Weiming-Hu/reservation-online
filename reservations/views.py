@@ -83,9 +83,11 @@ def welcome(request):
     if request.user.is_authenticated():
         status = True
         id_name = request.user.last_name
+        is_staff = request.user.is_staff
     else:
         status = False
         id_name = ''
+        is_staff = False
     
     for record in Record.objects.all():
         time_stamp = record.start_time
@@ -111,7 +113,8 @@ def welcome(request):
                 "id":id,
                 "start":item.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 "end":item.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                "title":item.user.last_name
+                "title":item.user.last_name,
+                "displayname":item.display_name,
             }
         filtered_records.append(d)
         id += 1
@@ -124,6 +127,7 @@ def welcome(request):
         "next_week": next_week,
         "status": status,
         "id_name": id_name,
+        "is_staff": is_staff,
         "records": filtered_records,
     }
     
@@ -133,8 +137,13 @@ def welcome(request):
 @login_required(login_url='reservations:auth_login')
 def add_reservation(request):
     if request.user.is_authenticated():
+        if request.user.is_staff:
+            is_staff = request.user.is_staff
+        else:
+            is_staff = False
         context = {
             'applicant_name': request.user.last_name,
+            'is_staff': is_staff,
         }
         return render(request, "reservations/add_reservation.html", context)
     else:
@@ -160,11 +169,12 @@ def cancle_reservation(request):
 def add_reservation_submit(request):
     now = datetime.datetime.now()
     # applicant = request.POST['applicant']
-    applicant = request.user.username
+    applicant = request.user.get_username()
+    displayname = request.POST['applicant']
 
     reservation_date = request.POST['reservation_date']
-    reservation_month = int(reservation_date.split('-')[1])
-    reservation_day = int(reservation_date.split('-')[0])
+    reservation_month = int(reservation_date.split('-')[0])
+    reservation_day = int(reservation_date.split('-')[1])
 
     start_hour = int(request.POST['start_hour'])
     start_minute = int(request.POST['start_minute'])
@@ -184,11 +194,12 @@ def add_reservation_submit(request):
         new_record = Record()
         new_record.start_time = start_time_form
         new_record.end_time = end_time_form
+        new_record.display_name = displayname
         new_record.user =  User.objects.filter(username=applicant)[0]
         new_record.save()
         return HttpResponseRedirect(reverse('reservations:index'))
     else:
-        raise Http404("The applicant does not exits. Reservation denied !")
+        raise Http404("The applier %s does not exits. Reservation denied !" % applicant)
 
 
 @login_required(login_url='reservations:auth_login')
@@ -366,8 +377,8 @@ def add_reservation_check(request):
     applicant = request.user.username
 
     reservation_date = request.GET['form_date']
-    reservation_month = int(reservation_date.split('-')[1])
-    reservation_day = int(reservation_date.split('-')[0])
+    reservation_month = int(reservation_date.split('-')[0])
+    reservation_day = int(reservation_date.split('-')[1])
 
     start_hour = int(request.GET['start_hour'])
     start_minute = int(request.GET['start_minute'])

@@ -15,7 +15,7 @@
 {% csrf_token %}
 	{% for record in available_records %}
 	    <input type="checkbox" name="checkbox_list" id="record{{ forloop.counter }}" value="{{ record.id }}" />
-	    <label for="record{{ forloop.counter }}">{{ record.user.last_name }} : {{ record.start_time }} - {{ record.end_time }}</label><br />
+	    <label for="record{{ forloop.counter }}">{{ record.display_name }} : {{ record.start_time }} - {{ record.end_time }}</label><br />
 	{% endfor %}
 <input type="submit" value="删除预约" />
 </form>

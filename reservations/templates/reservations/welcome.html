@@ -67,6 +67,11 @@
 			height: function($calendar){
 				return $(window).height() - $("p").outerHeight();
 			},
+
+            eventClick : function(calEvent, $event) {
+                alert('done');
+			},
+
 			eventRender : function(calEvent, $event) {
 				if(calEvent.end.getTime() < new Date().getTime()) {
 					$event.css("backgroundColor", "#aaa");
@@ -84,6 +89,7 @@
 
 		});
         {% endif %}
+        
 
 		function displayMessage(message) {
 			$("#message").html(message).fadeIn();

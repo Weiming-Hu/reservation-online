@@ -1,2 +1,7 @@
-django.pdf
-debug.mkd
+# uploadGithub.txt
+uploadGithub.txt
+# pdf
+*.pdf
+# mkd
+*.mkd
+*.md

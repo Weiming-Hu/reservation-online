@@ -21,5 +21,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^reservations/', include('reservations.urls')),
     url(r'^$', redirect_to_reservations),
-    
 ]

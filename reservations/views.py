@@ -1,7 +1,7 @@
 # coding:utf-8
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout, authenticate
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
@@ -80,7 +80,7 @@ def welcome(request):
     this_week_last_moment = datetime.datetime(now.year, now.month, now.day)
     this_week_last_moment += datetime.timedelta(days=(7-now.weekday()))
     
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         status = True
         id_name = request.user.last_name
     else:
